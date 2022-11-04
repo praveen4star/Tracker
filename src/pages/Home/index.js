@@ -1,6 +1,8 @@
 import React from 'react'
 import { Paper, Box, Grid } from "@mui/material"
 import Logo from 'assets/Images/logo.png'
+
+
 const boxStyle = {
     width: '100%',
     height : '4rem'
@@ -31,6 +33,7 @@ const Home = () => {
                 </Grid>
             </Paper>
         </Box>
+        
     )
 }
 
