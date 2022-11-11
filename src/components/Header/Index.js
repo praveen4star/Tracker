@@ -110,7 +110,7 @@ const Header = () => {
           <ReactPlayer width='100%'height='100%' url='https://youtu.be/0h7ETdJeBAo' controls />
         </Box3>
         
-      </Wrapper2>
+         </Wrapper2>
     </Container>
     </>
   )
