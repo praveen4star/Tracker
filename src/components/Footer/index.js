@@ -78,10 +78,10 @@ const Footer = () => {
                      <Box>Follow</Box> 
                     <Box>
                     <img  src={facebook} alt="facebook logo "/> 
-                    <img style={{width:46,height:30}} src={twitter}/>
-                    <img style={{width:46,height:30}} src={insta}/> 
-                    <img style={{width:46,height:30}} src={linkedin}/>
-                    <img style={{width:46,height:30}} src={youtube}/>
+                    <img style={{width:46,height:30}} src={twitter} alt="twitter"/>
+                    <img style={{width:46,height:30}} src={insta} alt="insta" /> 
+                    <img style={{width:46,height:30}} src={linkedin} alt="linkedin" />
+                    <img style={{width:46,height:30}} src={youtube} alt="youtube" />
                     </Box> 
                  </Grid>
             
