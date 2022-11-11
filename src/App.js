@@ -1,8 +1,9 @@
 
-import Header from "components/Header/Index";
+import Feature from "components/Features/Index";
 
 
-const App = () => <Header />
+
+const App = () => <Feature />
                    
  
 export default App;
