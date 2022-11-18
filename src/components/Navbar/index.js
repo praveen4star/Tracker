@@ -31,7 +31,6 @@ const Navbar = () => {
                     <Grid item xs={2} md={2}> Features </Grid>
                     <Grid item xs={2} md={2}> Contacts </Grid>
                     <Grid item xs={2} md={2}> Login Button </Grid>
-                    
                 </Grid>
             </Paper>
         </Box>
