@@ -1,14 +1,16 @@
 import React from 'react';
+import Navbar from 'components/Navbar';
+import Header from 'components/Header/Index';
 import Footer from 'components/Footer';
-import Navbar from 'components/Navbar/index.js';
 
-const Home = () => {
+const Homepage = () => {
     return (
-        <div>
+        <>
        <Navbar />
+       <Header />
        <Footer />
-        </div>
+        </>
     )
 }
 
-export default Home;
+export default Homepage;
