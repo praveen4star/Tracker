@@ -1,8 +1,11 @@
+import React from 'react';
+import Home from 'pages/Home'
 
-import Header from "components/Header/Index";
+const App = () => {
+    return (
+      <Home /> 
+    )
+}
 
-
-const App = () => <Header />
-                   
- 
 export default App;
+

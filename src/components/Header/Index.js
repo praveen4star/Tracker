@@ -1,8 +1,7 @@
-
 import React from 'react'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
-import Home from 'pages/Home'
+
 
 const Container=styled.div`
 width: 100%;
@@ -93,7 +92,7 @@ const Box3=styled.div`
 const Header = () => {
   return (
     <>
-    <Home/>
+  
     <Container>
       
       <Wrapper1>
