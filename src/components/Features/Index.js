@@ -11,17 +11,18 @@ import Logo1 from  'assets/Images/icon1.png'
 
 const Heading = styled.h1`
 margin: 1rem 0rem;
-font-size: 3rem;
+font-size: 2.5rem;
 text-align: center;
 font-family: 'Lato', sans-serif;
 
 @media screen and (max-width:700px){
-  font-size: 2rem;
+  font-size: 3rem;
 }
+
 
 `
 const Container = styled.div`
-width: 70%;
+width: 85%;
 
 margin: auto;
 display: flex;
@@ -33,11 +34,11 @@ justify-content: space-around;
 
 
 //=======Medium Devices=========//
-@media screen and (max-width:1200px){
+@media screen and (max-width:1350px){
   width: 100%;
 }
 //========== small devices=========//
-  @media screen and (max-width:750px){
+  @media screen and (max-width:820px){
    width: 70%;
    flex-direction: column;
 }
@@ -47,7 +48,7 @@ justify-content: space-around;
 const Card = styled.div`
 margin: 1rem;
 padding: 2rem 0rem;
-flex-basis: 25%;
+flex-basis: 22%;
 border-radius: 1rem;
 box-shadow: 3px 3px 10px 3px lightgray;
 text-align: center;
@@ -56,14 +57,18 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 
-@media screen and (max-width:900px){
+//=======small devices======//
+@media screen and (max-width:700px){
   padding: 3px 0px;
 }
 
-@media screen and (max-width:1500px){
-  flex-basis: 28%;
-  padding: 1px 0px;
+@media screen and (max-width:1070px){
+  padding: 0px 0px;
+  flex-basis: 20%;
 }
+
+
+
 
 `
 const Image = styled.img`
@@ -75,15 +80,26 @@ object-fit: contain;
 
 `
 const Text = styled.h2`
+@media screen and (max-width:1070px){
+  font-size: 1.5rem;
+}
+@media screen and (max-width:900px){
+  font-size: 1.3rem;
+}
 
 `
 const Para = styled.p`
-padding: 1rem 3rem;
+padding: 1rem 2rem;
 font-size: 1rem;
 font-weight: 700;
 text-size-adjust: none;
-@media screen and (max-width:900px){
+@media screen and (max-width:1100px){
   padding: 0.5rem 1rem;
+  font-size:  0.9rem;
+}
+@media screen and (max-width:821px){
+  padding: 1rem 3rem;
+  font-size:  1.3rem;
 }
 `
 const Circle=styled.div`
@@ -125,6 +141,15 @@ const Feature = () => {
              <Text>Track Progress</Text>
              <Para>
              Track your progress with dashboards and graph.Sync your workflow with calender,set up reminder and priorities your task.
+             </Para>
+        </Card>
+        <Card>
+             <Circle>
+             <Image src={Logo3} alt='img'/>
+             </Circle>
+             <Text>Consistency</Text>
+             <Para>
+             We use consistency alogrithm to generatedaily and weekly reportthat help you to becomemore consistent and accountable.
              </Para>
         </Card>
         <Card>

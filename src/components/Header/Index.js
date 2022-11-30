@@ -5,11 +5,12 @@ import ReactPlayer from 'react-player'
 
 const Container=styled.div`
 width: 100%;
-height: 100vh;
+height: 80vh;
 display: flex;
 
 @media screen and (max-width:900px){
   flex-direction: column;
+  height: 100vh;
 }
 
 `
@@ -21,10 +22,11 @@ flex: 1;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+
 `
 const Box=styled.div`
-padding: 5px;
+margin-top: 80px;
+padding: 1px;
 display: flex;
 align-content: center;
 justify-content: center;
@@ -32,7 +34,7 @@ justify-content: center;
 const Box2=styled.div`
 
 
-margin-top: 50px;
+margin-top: 30px;
 padding: 5px;
 display: flex;
 align-content: center;
@@ -40,7 +42,7 @@ justify-content: center;
 `
 const BigText=styled.h1`
 font-weight: 800;
-font-size: 36px;
+font-size: 45px;
 display: flex;
 align-items: center;
 text-align: center;
@@ -54,7 +56,7 @@ align-items: center;
 text-align: left;
 `
 const Button=styled.button`
-margin-top: 150px;
+margin-top: 100px;
 padding: 7px;
 width: 252px;
 border-radius: 15px;
@@ -72,11 +74,11 @@ const Wrapper2=styled.div`
 
 flex: 1;
 display: flex;
-align-items: center;
+
 justify-content: center;
 `
 const Box3=styled.div`
-  top: 233px;
+  margin-top: 85px;
   border: 4px solid gray;
   border-radius: 5px;
   height: 50%;
@@ -84,9 +86,9 @@ const Box3=styled.div`
   aspect-ratio: 1;
   
   @media screen and (max-width:900px){
-   height: 70%;
-   width: 80%;
-   aspect-ratio: 1;
+   height: 50%;
+   width: 70%;
+  
   }
 `
 const Header = () => {
