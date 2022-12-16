@@ -1,5 +1,5 @@
 import {Routes, Route , Navigate} from 'react-router-dom';
-import SideBar from 'component/sideBar';
+import SideBar from 'component/newSidebar';
 import './App.css';
 import Dashboard from 'pages/dashboard';
 import DailyRoutinue from 'pages/dailyRoutinue';

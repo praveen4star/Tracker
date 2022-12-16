@@ -1,3 +1,12 @@
-const Dashboard = () => <div>Dashboard</div>
+const Dashboard = () =>{
+return(
+    <>
+<div>
+</div>
+</>
+)
+
+
+} 
 
 export default Dashboard;

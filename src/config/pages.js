@@ -7,7 +7,7 @@ const pagesData = [
     { name: "stats", icon: <ImStatsDots /> ,path : "/stats"},
     { name: "daily routinue", icon: <RiCalendarEventFill />, path : "/dailyroutinue" },
     { name: "profile", icon : <CgProfile /> , path : "/profile"},
-    {name : "logout", icon : <MdLogout />, path : "/logout"}
+    { name: "logout", icon : <MdLogout />, path : "/logout"}
 ]
 
 export default pagesData;
