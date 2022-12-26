@@ -1,24 +1,20 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar'; 
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import pagesData from "config/pages";
 import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
+
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
@@ -36,19 +32,17 @@ function ResponsiveDrawer(props) {
      </List>
      <Divider />
      <List className="profile" sx={{textAlign:"center"}}>
-     <img src={profile1} style={{width:"120px",height:"120px"}} alt="logo of the company" />
+     <img src={profile1} style={{width:"100px",height:"100px"}} alt="logo of the company" />
       </List>
       <Divider />
       <List>
         {pagesData.map((data, index) => (
           <ListItem key={data} disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-              <div className="nav_icon">{ data.icon}</div>
-              </ListItemIcon>
-              <ListItemText primary={data.name} />
+              <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
+              <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
             </ListItemButton>
-          </ListItem>
+           </ListItem>
         ))}
       </List>
     </div>
@@ -58,7 +52,7 @@ function ResponsiveDrawer(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+      
       <AppBar
         position="fixed"
         sx={{
@@ -117,12 +111,6 @@ function ResponsiveDrawer(props) {
   );
 }
 
-ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
+
 
 export default ResponsiveDrawer;
