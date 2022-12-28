@@ -1,6 +1,5 @@
 import pagesData from "config/pages";
-import logo from "assets/images/logo.png"
-import { Link } from "react-router-dom";
+import logo from "assets/images/logo.png";
 import "./index.css"
 const SideBar = () =>
     <div className="sidebar">

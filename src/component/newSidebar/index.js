@@ -15,6 +15,7 @@ import pagesData from "config/pages";
 import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 
+
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
@@ -38,7 +39,7 @@ function ResponsiveDrawer(props) {
       <List>
         {pagesData.map((data, index) => (
           <ListItem key={data} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={data.path}>
               <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
               <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
             </ListItemButton>
