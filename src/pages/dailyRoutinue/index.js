@@ -1,5 +1,5 @@
-const DailyRoutinue = () => <div>Daily Routinue 
-
-</div>
+const DailyRoutinue = () => {
+    <div></div>
+}
 
 export default DailyRoutinue;

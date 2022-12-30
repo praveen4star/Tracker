@@ -1,16 +1,21 @@
 .nav-navbar{
-    height: 76px;
-    border-bottom: 1px solid rgba(34, 30, 30, 0.32);
-    display: flex;
+    margin-top:-45px;
 }
 
 .nav-search-icon{
-    height: 100%;
-    width: 50%;
-    position: relative;
-    left: 30px;
-    top: 18px;
+     height: 100%;
+     width: 50%;
+     margin-left:15px;
+     margin-top:auto;
+     margin-bottom:auto;
 }
+
+@media only screen and (max-width:716px) {
+    .nav-search-icon{
+      visibility: hidden;
+    }
+  }
+
 .nav-search-icon input,.nav-search-icon input:focus-visible{
     background: #FFFFFF;
     border: 1px solid #D9D9D9;
@@ -21,11 +26,14 @@
     font-size: 16px;
     padding-left: 10px;
 }
+
 .nav-personal-icon{
-    width: 50%;
-    height: 100%;
-    text-align: right;
-    position: relative;
-    right: 30px;
-    display: flex;
+    margin-right:50px;
+    margin-top:-32px;
+    float:right;
 }
+
+.nav-personal-icon span{
+    padding-left:40px;
+} 
+

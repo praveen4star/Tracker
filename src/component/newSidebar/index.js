@@ -10,11 +10,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import pagesData from "config/pages";
 import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
-
+import Navbar from '../navBar';
 
 const drawerWidth = 230;
 
@@ -53,17 +52,17 @@ function ResponsiveDrawer(props) {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          height:"70px"
         }}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            color="white"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -71,11 +70,11 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
-        </Toolbar>
+         
+         </Toolbar>
+         <Navbar /> 
       </AppBar>
+
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
