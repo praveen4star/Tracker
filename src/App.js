@@ -6,12 +6,12 @@ import DailyRoutinue from 'pages/dailyRoutinue';
 import Stats from 'pages/stats';
 import Profile from 'pages/profile';
 import Logout from 'pages/logout';
-import NavBar from 'component/navBar';
+
 
 function App() {
   return (
     <div className="main">
-      {/* <NavBar /> */}
+      
       <SideBar />
        <div className='main-page'>
           <Routes>

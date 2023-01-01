@@ -37,7 +37,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {pagesData.map((data, index) => (
-          <ListItem key={data} disablePadding>
+          <ListItem key={index} disablePadding>
             <ListItemButton href={data.path}>
               <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
               <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
