@@ -6,13 +6,13 @@ import DailyRoutinue from 'pages/dailyRoutinue';
 import Stats from 'pages/stats';
 import Profile from 'pages/profile';
 import Logout from 'pages/logout';
-
+import Home from 'pages/Home';
 
 function App() {
   return (
     <div className="main">
-      
-      <SideBar />
+      <Home />
+      {/* <SideBar />
        <div className='main-page'>
           <Routes>
             <Route path='/dashboard' element={<Dashboard />} />
@@ -22,7 +22,7 @@ function App() {
             <Route path='/logout' element={<Logout />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />}/>
           </Routes>
-        </div>
+        </div> */}
         
     
       
