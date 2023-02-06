@@ -14,7 +14,8 @@ import pagesData from "config/pages";
 import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 import Navbar from '../navBar';
-import {Link,Outlet} from 'react-router-dom';
+
+
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {

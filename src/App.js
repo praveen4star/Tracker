@@ -1,7 +1,7 @@
 import {Routes, Route , Navigate} from 'react-router-dom';
-import SideBar from 'component/newSidebar';
+
 import './App.css';
-import Dashboard from 'pages/dashboard';
+import Dashboard from 'pages/dashboard/index';
 import DailyRoutinue from 'pages/dailyRoutinue';
 import Stats from 'pages/stats';
 import Profile from 'pages/profile';
