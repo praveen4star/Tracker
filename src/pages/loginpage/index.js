@@ -3,12 +3,7 @@ import styled from 'styled-components'
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
-
 const Container = styled.div`
-
 width: 100%;
 height: auto;
 display: flex;
