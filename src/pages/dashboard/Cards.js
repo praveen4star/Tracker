@@ -6,15 +6,15 @@ import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 
 
-const useStyles = makeStyles({
-  cardContainer:{
-  boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)',
+// const useStyles = makeStyles({
+//   cardContainer:{
+//   boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)',
   
-  },
-})
+//   },
+// })
 
 
 const percentage = 60;
@@ -96,10 +96,10 @@ const card = (
  const OutlinedCard= ()=> {
  const [opentask, setopentask] = useState(false);
 
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <Box opentask={opentask} sx={{ minWidth: 200 }}>
-      <Card variant="outlined" className={classes.cardContainer} onClick={setopentask} >{card}</Card>
+      <Card variant="outlined" style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} >{card}</Card>
     </Box>
   );
 }

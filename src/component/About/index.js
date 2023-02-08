@@ -1,6 +1,5 @@
 import React from 'react';
 import { Paper, Box, Grid ,Link,Typography} from "@mui/material";
-// import { makeStyles } from '@mui/styles';
 import about1 from 'assets/images/about1.png';
 import about2 from 'assets/images/about2.png';
 

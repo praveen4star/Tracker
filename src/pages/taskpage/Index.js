@@ -36,38 +36,38 @@ font-weight: bold;
 // `;
 
 
-const Index = () => {
-  return (
-    <Container>
-        <Strip>
-            <PlanName>Development</PlanName>
-            <ResponsiveDialog/>
-        </Strip>
-        <Strip>
-            <PlanName>Development</PlanName>
+// const Index = () => {
+//   return (
+//     <Container>
+//         <Strip>
+//             <PlanName>Development</PlanName>
+//             <ResponsiveDialog/>
+//         </Strip>
+//         <Strip>
+//             <PlanName>Development</PlanName>
             
-        </Strip>
-        <Strip>
-            <PlanName>Development</PlanName>
+//         </Strip>
+//         <Strip>
+//             <PlanName>Development</PlanName>
             
-        </Strip>
-        <Strip>
-            <PlanName>Development</PlanName>
+//         </Strip>
+//         <Strip>
+//             <PlanName>Development</PlanName>
             
-        </Strip>
-        <Strip>
-            <PlanName>Development</PlanName>
+//         </Strip>
+//         <Strip>
+//             <PlanName>Development</PlanName>
             
-        </Strip>
+//         </Strip>
 
 
 
 
 
 
-    </Container>
+//     </Container>
     
-  )
-}
-
+//   )
+// }
+const Index = ()=><h1>Hello</h1>
 export default Index

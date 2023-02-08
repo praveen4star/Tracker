@@ -7,17 +7,6 @@ import testinomial2 from  'assets/images/testinomail2.png';
 import testinomial3 from  'assets/images/testinomial3.png';
 import quotation from 'assets/images/quotation.png';
 import {Box, Grid ,Typography} from "@mui/material";
-// import { makeStyles } from '@mui/styles';
-
-
-// const useStyles = makeStyles({
-//     Profile:{
-//      fontFamily:'Lato',
-//      fontSize:'18px',
-//      fontWeight:"300",
-//      color:"rgba(0, 0, 0, 1)"
-//     },
-// });
 
  const MediaCard=()=> {
     // const classes=useStyles();

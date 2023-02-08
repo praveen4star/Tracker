@@ -3,34 +3,25 @@ import styled from 'styled-components'
 import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 import {Paper} from '@mui/material';
 import SideBar from 'component/newSidebar/index';
 
 
 
-const useStyles = makeStyles({
-  gridContainer:{
-    height:'100vh',
-    width:'100%',
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-    paddingLeft: '32px',
-    overflowY:'scroll',
-    scrollBehavior:'smooth',
-    
-   
-
-   
-    
-    
-    
+// const useStyles = makeStyles({
+//   gridContainer:{
+//     height:'100vh',
+//     width:'100%',
+//     display:'flex',
+//     alignItems:'center',
+//     justifyContent:'center',
+//     paddingLeft: '32px',
+//     overflowY:'scroll',
+//     scrollBehavior:'smooth',
+//    }
   
-
-  }
-  
-});
+// });
 
 
 const ContainerSecond = styled.div`
@@ -76,7 +67,7 @@ display: flex;
 
 
 const Index = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   return (
     <Wrapper>
       <SideBar/>
@@ -87,7 +78,19 @@ const Index = () => {
             
         </Strip>
         <ContainerSecond>
-        <Grid container spacing={4} className={classes.gridContainer} xs={{height:'100vh'}}  >
+          <Grid   container pacing={4} style={
+              {
+                height:'100vh',
+                width:'100%',
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                paddingLeft: '32px',
+                overflowY:'scroll',
+                scrollBehavior:'smooth',
+              }
+            }
+            xs={{ height: '100vh' }}  >
          
          
           <Grid item xs={12} sm={6} md={4}>

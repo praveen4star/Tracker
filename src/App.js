@@ -1,15 +1,15 @@
 import {Routes, Route , Navigate} from 'react-router-dom';
 import './App.css';
 import SideBar from './component/newSidebar';
-import Dashboard from 'pages/dashboard/index';
-import DailyRoutinue from 'pages/dailyRoutinue';
-import Stats from 'pages/stats';
-import Profile from 'pages/profile';
-import Logout from 'pages/logout';
-import Home from 'pages/Home';
-import Login from 'pages/loginpage';
-import Registration from 'pages/registration';
-import Taskpage from 'pages/taskpage';
+import Dashboard from './pages/dashboard/index';
+import DailyRoutinue from './pages/dailyRoutinue';
+import Stats from './pages/stats';
+import Profile from './pages/profile';
+import Logout from './pages/logout';
+import Home from './pages/Home';
+import Login from './pages/loginpage';
+import Registration from './pages/registration';
+import Taskpage from './pages/taskpage/Index';
 
 function App() {
   return (
