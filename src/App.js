@@ -1,4 +1,4 @@
-import {Routes, Route , Navigate} from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 import './App.css';
 import SideBar from './component/newSidebar';
 import Dashboard from './pages/dashboard/index';
@@ -24,7 +24,7 @@ function App() {
               <Route path='stats' element={<Stats />} />
               <Route path='profile' element={<Profile />} />
               <Route path='logout' element={<Logout />} />
-              <Route path='taskpage' element={<Taskpage/>} />
+              <Route path='task' element={<Taskpage/>} />
           </Route>
       </Routes>
   </div>
