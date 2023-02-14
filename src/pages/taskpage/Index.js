@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ResponsiveDialog from './Taskpopup'
+
 
 
 
@@ -9,65 +10,282 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+
 `;
-const Strip = styled.div`
+
+const Wrapper = styled.div`
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+`;
+const Strip = styled.button`
 width: 90%;
-margin: 2rem;
+margin: 1rem;
 padding: 1rem;
-border: 1px solid grey;
+border: 2px solid grey;
+border-radius: 10px;
 display: flex;
 align-items: center;
 justify-content: space-between;
 
 `;
-const PlanName = styled.text`
+
+const TaskName = styled.text`
 font-size: 30px;
 font-weight: bold;
 
 `;
-// const AddTask = styled.button`
-// padding: 15px 40px;
-// font-size: 15px;
-// font-weight: bold;
-// border: 0px solid grey;
-// border-radius: 5px;
-// background-color: #3e98c7;
 
-// `;
+const StripContent = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 
 
-// const Index = () => {
-//   return (
-//     <Container>
-//         <Strip>
-//             <PlanName>Development</PlanName>
-//             <ResponsiveDialog/>
-//         </Strip>
-//         <Strip>
-//             <PlanName>Development</PlanName>
+`;
+
+const Circle = styled.div`
+margin: 0px 10px;
+height: 20px;
+width: 20px;
+border: 1px solid grey;
+border-radius: 50%;
+
+`;
+
+const SubContent = styled.div`
+margin-left: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+`;
+
+const PlanName = styled.text`
+font-size: 15px;
+font-weight: bold;
+
+`;
+
+const NewStrip = styled.div`
+width: 90%;
+margin: 1rem;
+padding: 1rem;
+border: 2px solid grey;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+`;
+const Time = styled.div`
+font-size: 15px;
+font-weight: 500;
+color: grey;
+`;
+
+const Date=styled.div`
+font-size: 15px;
+font-weight: 500;
+color: grey;
+`;
+
+const SecondSubContent = styled.div`
+
+
+display: flex;
+align-items: flex-end;
+justify-content: center;
+`;
+
+const ThirdSubContent = styled.div`
+margin: 0px 5px;
+padding: 0px 5px;
+display: flex;
+align-items: flex-end;
+justify-content: center;
+`;
+
+const ChangedStrip = styled.button`
+width: 90%;
+height: 120px;
+margin: 1rem;
+padding: 1rem;
+border: 2px solid grey;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+`;
+
+const Desc = styled.div`
+margin: 0px 40px;
+padding: 10px;
+
+
+`;
+
+const DescText = styled.text`
+font-size: 15px;
+`;
+
+const TimeAndDate = styled.div`
+margin: 0px 40px;
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+`;
+
+
+
+
+
+
+
+const IndexTaskPage = () => {
+
+    const [show, setShow] = useState(true);
+  
+  return (
+    <Container>
+        
+        <Wrapper>
+
             
-//         </Strip>
-//         <Strip>
-//             <PlanName>Development</PlanName>
+        <NewStrip >
             
-//         </Strip>
-//         <Strip>
-//             <PlanName>Development</PlanName>
+            <TaskName>Development</TaskName>
+            <ResponsiveDialog/>
+        </NewStrip>
+
+
+     
+       { show? <Strip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+                </SubContent> 
+         </StripContent>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+          
             
-//         </Strip>
-//         <Strip>
-//             <PlanName>Development</PlanName>
+        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+            </SubContent> 
             
-//         </Strip>
+         </StripContent>
+        <Desc>
+           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
+        </Desc>
+        <TimeAndDate>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+        </TimeAndDate>
+
+        </ChangedStrip>
+}
+{ show? <Strip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+                </SubContent> 
+         </StripContent>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+          
+            
+        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+            </SubContent> 
+            
+         </StripContent>
+        <Desc>
+           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
+        </Desc>
+        <TimeAndDate>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+        </TimeAndDate>
+
+        </ChangedStrip>
+}
+{ show? <Strip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+                </SubContent> 
+         </StripContent>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+          
+            
+        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+            </SubContent> 
+            
+         </StripContent>
+        <Desc>
+           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
+        </Desc>
+        <TimeAndDate>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+        </TimeAndDate>
+
+        </ChangedStrip>
+}
+
+        
 
 
 
+        </Wrapper>
 
-
-
-//     </Container>
+    </Container>
     
-//   )
-// }
-const Index = ()=><h1>Hello</h1>
-export default Index
+  )
+}
+
+export default IndexTaskPage
