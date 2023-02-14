@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Login from './pages/loginpage';
 import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
+import Quiz from './pages/pdequestions/index'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path='profile' element={<Profile />} />
               <Route path='logout' element={<Logout />} />
               <Route path='task' element={<Taskpage/>} />
+              <Route path='quiz' element={<Quiz/>} />
           </Route>
       </Routes>
   </div>
