@@ -1,4 +1,4 @@
-import  React,{useState} from 'react';
+import  React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -7,7 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
-import DatePicker from 'react-datepicker';
+
 import 'react-datepicker/dist/react-datepicker.css'
 
 
@@ -24,7 +24,7 @@ const Text = styled.h5`
   
   const [open, setOpen] = React.useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(null)
+
   
 
   
@@ -64,9 +64,11 @@ const Text = styled.h5`
       <TextField id="outlined-basic"  variant="outlined" placeholder='Task Name' />
       <Text>Description</Text>
       <TextField id="outlined-basic"  variant="outlined" placeholder='Description'/> 
-      <Text>Due Date</Text> 
-      <DatePicker selected={selectedDate} onChange={date=>setSelectedDate(date)} />
-      
+      <Text>Due Date</Text>
+      <TextField type="date" id="outlined-basic"  variant="outlined" placeholder='Description'/>  
+      <Text>Due Time</Text>
+      <TextField type="time" id="outlined-basic"  variant="outlined" placeholder='Description'/>  
+     
       
       
       
