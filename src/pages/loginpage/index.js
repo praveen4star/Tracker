@@ -1,9 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+
+
+
+
 const Container = styled.div`
+
 width: 100%;
 height: auto;
 display: flex;
@@ -18,7 +23,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 `;
-const Hello = styled.text`
+const Hello = styled.div`
 font-size: 40px;
 font-weight: bold;
 `;
@@ -37,7 +42,8 @@ margin:1rem;
 padding: 1rem 6rem;
 border: 1px solid transparent;
 border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 `;
 const FieldText = styled.div`
 margin: 4px;
@@ -127,7 +133,7 @@ const GoogleButton = styled.button`
   cursor: pointer;
 
 `;
-const OrWithText = styled.text`
+const OrWithText = styled.div`
 
 `;
 const MidText = styled.span`
@@ -152,19 +158,53 @@ color: blue;
 const Login = () => {
 
   const navigate=useNavigate();
+
+  const [login, setLogin] = useState({
+    email:"",
+    password:"",
+  });
+  const [records, setRecords] = useState([]);
+
+const handleInput = (e)=>{
+  const name = e.target.name; 
+  const value = e.target.value;
+  console.log(name,value);
+
+  setLogin({...login,[name]:value});
+}
+
+
+const handleSubmit = (e)=>{
+  e.preventDefault();
+  
+  const newRecords = {...login, id: new Date().getTime().toString()}
+  console.log(records);
+  setRecords([...records,newRecords]);
+  console.log(records);
+
+  setLogin({email:"",password:""})
+
+}
+
   return (
     <>
     <Container>
       <HelloText>
         <Hello>Hi, Welcome Back !</Hello>
       </HelloText>
-    <Form action=''>
+    <Form action=''onSubmit={handleSubmit}>
       <MainBox>
       <FieldText >
         <TextSpan htmlFor='email'>Email</TextSpan>
       </FieldText>
       <Box>
-        <Input type='email'autoComplete='off' name='email' id='email'/>
+        <Input 
+        type='email'
+        autoComplete='off'
+        value={login.email}
+        onChange={handleInput}
+        name='email'
+        id='email'/>
       </Box>
       </MainBox> 
       
@@ -173,7 +213,13 @@ const Login = () => {
       <TextSpan htmlFor='password'>Password</TextSpan>
       </FieldText>
       <Box>
-        <Input type='password'autoComplete='off' name='password' id='password'/>
+        <Input
+         type='password'
+         autoComplete='off' 
+         value={login.password}
+         onChange={handleInput}
+         name='password' 
+         id='password'/>
       </Box>
       </MainBox>
       <ButtonBox>
