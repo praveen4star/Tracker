@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 
 
 
@@ -12,7 +12,6 @@ const Container = styled.div`
 
 width: 100%;
 height: auto;
-
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -164,63 +163,96 @@ color: blue;
 `;
 
 const Registration = () => {
-
+  const errRef = useRef();
   const Navigate = useNavigate();
-
+  const [errMsg, setErrMsg] = useState('');
   const [userRegistration, setUserRegistration] = useState({
-    name:"",
+    fName:"",
+    lName:" ",
     email:"",
     proname:"",
     password:"",
     confirmpassword:""
   });
 
-  const [records, setRecords] = useState([]);
-
+  
   const handleInput = (e)=>{
     const name = e.target.name; 
     const value = e.target.value;
-    console.log(name,value);
-
-    setUserRegistration({...userRegistration,[name]:value})
+   setUserRegistration({...userRegistration,[name]:value})
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
-    
-    const newRecords = {...userRegistration, id: new Date().getTime().toString()}
-    console.log(records);
-    setRecords([...records,newRecords]);
-    console.log(records);
-
-    setUserRegistration({name:"",email:"",proname:"",password:"",confirmpassword:""})
-  
+    const { fName,lName,email,proname,password,confirmpassword}=userRegistration;
+    if (password!=confirmpassword) { 
+        setErrMsg("Password Does'nt Match");
+        return;
+    }
+    try {
+      const response = await axios.post("http://localhost:9000/api/users/signup",
+          JSON.stringify({email:email
+            ,fName:fName,lName:lName,password:password,type:proname}),
+          {
+              headers: { 'Content-Type': 'application/json' },
+              withCredentials: true
+          }
+      );
+      if(response?.data?.message=="successfully user has created his account"){
+             Navigate('/login');
+      }
+      userRegistration({name:"",email:"",proname:"",password:"",confirmpassword:""});
+  } catch (err) {
+     if (err.response?.data?.message === "user has already account with this email") {
+      setErrMsg('Username Taken');
+  } else {
+      setErrMsg('Registration Failed');
   }
+      errRef.current.focus();
+  }
+}
 
-  
-
-  return (
+ 
+return (
     <>
     <Container>
       <HelloText>
       <Hello>Hi, Welcome to Task Exhibitor</Hello>
+      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>  
       </HelloText>
-    <Form action='' onSubmit={handleSubmit}>
+
+    <Form  onSubmit={handleSubmit}>
       <MainBox>
       <FieldText>
-        <TextSpan  htmlFor='name'>Name</TextSpan>
+        <TextSpan  htmlFor='name'>First Name</TextSpan>
       </FieldText>
       <Box>
         <Input 
         type='text'
         autoComplete='off'
-        value={userRegistration.name}
+        value={userRegistration.fName}
         onChange={handleInput}
-        name='name'
-        id='name'/>
+        name='fName'
+        id='fName'/>
       </Box>
       </MainBox>
 
+      <MainBox>
+      <FieldText>
+        <TextSpan  htmlFor='lName'>Last Name</TextSpan>
+      </FieldText>
+      <Box>
+        <Input 
+        type='text'
+        autoComplete='off'
+        value={userRegistration.lName}
+        onChange={handleInput}
+        name='lName'
+        id='lName'/>
+      </Box>
+      </MainBox>
+
+      
       <MainBox>
       <FieldText>
         <TextSpan  htmlFor='email'>Email</TextSpan>
@@ -280,7 +312,7 @@ const Registration = () => {
       </Box>
       </MainBox>
       <ButtonBox>
-        <Button type='submit'>Register</Button>
+        <Button type='submit' >Register</Button>
       </ButtonBox>
 
       <SectionSecond>
