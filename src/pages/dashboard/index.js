@@ -5,7 +5,7 @@ import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
 // import { makeStyles } from '@mui/styles';
 import {Paper} from '@mui/material';
-import SideBar from 'component/newSidebar/index';
+
 
 
 
@@ -32,6 +32,7 @@ overflow-y: scroll;
 
 
 const Container = styled.div`
+margin-top:100px;
 height: auto;
 display: flex;
 flex-direction: column;
@@ -58,9 +59,7 @@ const MidText = styled.span`
 color: blue;
 `;
 
-const Wrapper = styled.div`
-display: flex;
-`;
+
 
 
 
@@ -69,13 +68,12 @@ display: flex;
 const Index = () => {
   // const classes = useStyles();
   return (
-    <Wrapper>
-      <SideBar/>
+    
+    
     <Container>
         <Strip>
             <Text>Hello <MidText>Avenya</MidText></Text>
-            <ResponsiveDialog/>
-            
+            <ResponsiveDialog/>  
         </Strip>
         <ContainerSecond>
           <Grid   container pacing={4} style={
@@ -85,7 +83,7 @@ const Index = () => {
                 display:'flex',
                 alignItems:'center',
                 justifyContent:'center',
-                paddingLeft: '32px',
+                paddingLeft: '28px',
                 overflowY:'scroll',
                 scrollBehavior:'smooth',
               }
@@ -94,40 +92,40 @@ const Index = () => {
          
          
           <Grid item xs={12} sm={6} md={4}>
-          <OutlinedCard/>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
           <Paper><OutlinedCard/></Paper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
+          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
           </Grid>
         </Grid>
         </ContainerSecond>
     </Container>
 
-    </Wrapper>
+    
   )
 }
 
