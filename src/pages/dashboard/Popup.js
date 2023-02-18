@@ -51,6 +51,8 @@ const Text = styled.h5`
      setUser({plan:"",desc:""});
   }
 
+ 
+
   return (
     <div>
       <Button variant="contained" onClick={handleClickOpen}>

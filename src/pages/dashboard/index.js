@@ -1,22 +1,16 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from 'styled-components'
 import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
 import {Paper} from '@mui/material';
-
-
-
-
-
+import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
 const ContainerSecond = styled.div`
 height: auto;
 overflow-y: scroll;
 
 `
-
-
 const Container = styled.div`
 margin-top:100px;
 height: auto;
@@ -26,6 +20,7 @@ align-items: center;
 justify-content: center;
 
 `;
+
 const Strip = styled.div`
 margin: 1rem;
 padding: 1rem;
@@ -47,13 +42,22 @@ color: blue;
 
 
 const Index = () => {
+  const[user,setUser]=useState({});
+
+  useEffect(() => {
+    jwtInterceoptor
+      .get("http://localhost:9000/api/users/user")
+      .then((response) => {
+        console.log(response)
+          setUser(response?.data);
+          console.log(user.fName);
+      });
+  }, []);
  
   return (
-    
-    
     <Container>
         <Strip>
-            <Text>Hello <MidText>Avenya</MidText></Text>
+            <Text>Hello <MidText>{user.fName}</MidText></Text>
             <ResponsiveDialog/>  
         </Strip>
         <ContainerSecond>
@@ -75,34 +79,7 @@ const Index = () => {
           <Grid item xs={12} sm={6} md={4}>
           <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
-          </Grid>
-        </Grid>
+       </Grid>
         </ContainerSecond>
     </Container>
 
