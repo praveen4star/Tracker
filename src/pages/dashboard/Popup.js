@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import Stack from '@mui/material/Stack';
+import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
 
 const Text = styled.h5`
@@ -19,19 +20,11 @@ const Text = styled.h5`
  const  ResponsiveDialog =()=> {
   
   const [open, setOpen] = React.useState(false);
-  const [user,setUser] = useState({
-    plan:"",desc:""
+
+  const [plan,setPlan] = useState({
+    planName:"",desc:""
   });
-  const [records , setRecords] = useState([]);
-
-   const handleInput = (e)=>{
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(name,value);
-
-    setUser({...user, [name]:value })
-
-   }
+ 
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -39,21 +32,34 @@ const Text = styled.h5`
   const handleClose = () => {
     setOpen(false);
   };
-  
 
-  const handleSubmit = (e)=>{
+   const handleInput = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value;
+     setPlan({...plan, [name]:value })
+   }
+
+      const{planName,desc}=plan;
+      const payload={
+        "plan_name" : planName,
+        "desc":desc
+      }
+
+   const handleSubmit = async(e)=>{
      e.preventDefault();
-     const newRecord = {...user,id: new Date().getTime().toString()}
-     console.log(records);
-     setRecords([...records,newRecord]);
-     console.log(records);
-
-     setUser({plan:"",desc:""});
-  }
-
- 
-
-  return (
+     try{
+     const response= await  jwtInterceoptor
+     .post("http://localhost:9000/api/plan",payload);
+    setPlan({plan:"",desc:""});
+    }
+    catch(err){
+      console.log(err);
+    }
+    
+   }
+  
+  
+return (
     <div>
       <Button variant="contained" onClick={handleClickOpen}>
         Add Plan
@@ -75,10 +81,10 @@ const Text = styled.h5`
 
       <Text>Plan Name</Text>
       <TextField
-       name='plan'
+       name='planName'
        id="outlined-basic"
        variant="outlined"
-       value={user.plan}
+       value={plan.plan}
        onChange={handleInput}
        placeholder='Plan Name'/>
 
@@ -87,7 +93,7 @@ const Text = styled.h5`
        name='desc'
        id="outlined-basic"
        variant="outlined"
-       value={user.desc}
+       value={plan.desc}
        onChange={handleInput}
        placeholder='Description'/>      
     <Stack spacing={2} direction="row">

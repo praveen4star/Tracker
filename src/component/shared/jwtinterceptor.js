@@ -4,7 +4,6 @@ const jwtInterceoptor = axios.create({});
 
 jwtInterceoptor.interceptors.request.use((config) => {
   let tokensData = JSON.parse(localStorage.getItem("tokens"));
-  console.log(tokensData);
   config.headers.set("x-access-token",tokensData);
   return config;
 });

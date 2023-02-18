@@ -1,4 +1,4 @@
-import  React,{useState} from 'react';
+import  React,{useState,useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,26 +6,12 @@ import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-// import { makeStyles } from '@mui/styles';
-
-
-// const useStyles = makeStyles({
-//   cardContainer:{
-//   boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)',
-  
-//   },
-// })
-
+import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
 const percentage = 60;
-
-
-
 const CardTop = styled.div`
 display: flex;
 align-items: center;
-
-
 `;
 const Icon = styled.div`
 
@@ -69,38 +55,52 @@ justify-content: center;
 
 
 
-const card = (
-  <React.Fragment>
-    <CardContent >
-      <CardTop>
-       <Icon><IconCircle>2</IconCircle></Icon>
-      <Typography sx={{ fontSize: 18,fontWeight:'bold', padding:'10px', }} >
-        Development
-      </Typography>
-      </CardTop> 
-      <CardMiddle>
-      <CircularStyle>
-        <CircularProgressbar value={percentage} text={`${percentage}%`} strokeWidth={'13'} />
-      </CircularStyle>
-      <MiddleText>6/10</MiddleText>
-      </CardMiddle>
-      <CardBottom>
-        <BottomText>Mai bhi chahta hu kisi ka dhyaan rakhu aur mera bhi koi dhyaan rakhe lekin darr jata hu christine - Dr Strange <br/>Agar Alag hone ke darr se hum sath na reh sake toh ishme kiska fayda hai peter - Gwen </BottomText>
-      </CardBottom>
-        
-    </CardContent>
-    
-  </React.Fragment>
-);
+const CardExample =(props)=>{
+const{count,desc,planName}=props;
+ return(
+    <React.Fragment>
+        <CardContent >
+          <CardTop>
+          <Icon><IconCircle>{count+1}</IconCircle></Icon>
+          <Typography sx={{ fontSize: 18,fontWeight:'bold', padding:'10px', }} >
+            {planName}
+          </Typography>
+          </CardTop> 
+          <CardMiddle>
+          <CircularStyle>
+            <CircularProgressbar value={percentage} text={`${percentage}%`} strokeWidth={'13'} />
+          </CircularStyle>
+          <MiddleText>6/10</MiddleText>
+          </CardMiddle>
+          <CardBottom>
+            <BottomText>{desc} </BottomText>
+          </CardBottom>
+        </CardContent>
+    </React.Fragment>
+  )
+}
 
  const OutlinedCard= ()=> {
  const [opentask, setopentask] = useState(false);
+  const[plans,setPlans]=useState([]);
 
-  // const classes = useStyles();
+ useEffect(() => {
+  jwtInterceoptor
+    .get("http://localhost:9000/api/plan")
+    .then((response) => {
+        setPlans(response?.data);
+    });
+}, []);
+
+ 
   return (
-    <Box opentask={opentask} sx={{ minWidth: 200 }}>
-      <Card variant="outlined" style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} >{card}</Card>
-    </Box>
+   <Box opentask={opentask} sx={{ minWidth: 200 }}>
+      {
+      plans.map((elem,key)=>{
+       return <Card variant="outlined"  style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} ><CardExample key={key} count={key} desc={elem.desc} planName={elem.plan_name}/></Card>
+      })
+      } 
+     </Box>
   );
 }
 export default OutlinedCard;

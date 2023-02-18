@@ -19,12 +19,10 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = async (payload) => {
-     console.log(payload);
     const apiResponse = await axios.post(
       "http://localhost:9000/api/users/login",
       payload
     );
-    console.log(apiResponse);
     localStorage.setItem("tokens", JSON.stringify(apiResponse?.data?.authToken));
     setUser(jwt_decode(apiResponse?.data?.authToken));
     navigate("/dashboard");
