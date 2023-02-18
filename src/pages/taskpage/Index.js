@@ -1,26 +1,19 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import ResponsiveDialog from './Taskpopup'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import ResponsiveDialog from './Taskpopup';
 
 
-
-
-const Container = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-`;
 
 const Wrapper = styled.div`
+margin-top:150px;
 width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-
 `;
+
+
 const Strip = styled.button`
 width: 90%;
 margin: 1rem;
@@ -79,8 +72,8 @@ border-radius: 10px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-
 `;
+
 const Time = styled.div`
 font-size: 15px;
 font-weight: 500;
@@ -94,8 +87,6 @@ color: grey;
 `;
 
 const SecondSubContent = styled.div`
-
-
 display: flex;
 align-items: flex-end;
 justify-content: center;
@@ -125,8 +116,6 @@ justify-content: center;
 const Desc = styled.div`
 margin: 0px 40px;
 padding: 10px;
-
-
 `;
 
 const DescText = styled.text`
@@ -141,151 +130,60 @@ align-items: center;
 justify-content: center;
 `;
 
-
-
-
-
-
-
 const IndexTaskPage = () => {
 
     const [show, setShow] = useState(true);
   
   return (
-    <Container>
-        
-        <Wrapper>
-
-            
+    <>
+      <Wrapper>
         <NewStrip >
-            
             <TaskName>Development</TaskName>
             <ResponsiveDialog/>
         </NewStrip>
-
-
-     
-       { show? <Strip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-                </SubContent> 
-         </StripContent>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-          
-            
-        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-            </SubContent> 
-            
-         </StripContent>
-        <Desc>
-           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
-        </Desc>
-        <TimeAndDate>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-        </TimeAndDate>
-
-        </ChangedStrip>
-}
-{ show? <Strip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-                </SubContent> 
-         </StripContent>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-          
-            
-        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-            </SubContent> 
-            
-         </StripContent>
-        <Desc>
-           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
-        </Desc>
-        <TimeAndDate>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-        </TimeAndDate>
-
-        </ChangedStrip>
-}
-{ show? <Strip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-                </SubContent> 
-         </StripContent>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-          
-            
-        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-            </SubContent> 
-            
-         </StripContent>
-        <Desc>
-           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
-        </Desc>
-        <TimeAndDate>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-        </TimeAndDate>
-
-        </ChangedStrip>
-}
-
         
+    { show? <Strip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+                </SubContent> 
+         </StripContent>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+          
+            
+        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
+        <StripContent>
+            <SubContent>
+                 <Circle/>
+                 <PlanName>Practice daily leetcode challenge</PlanName>
+            </SubContent> 
+            
+         </StripContent>
+        <Desc>
+           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
+        </Desc>
+        <TimeAndDate>
+        <SecondSubContent>
+            <Time>06:40pm</Time>  
+        </SecondSubContent>
+        <ThirdSubContent>
+                <Date>30/06/2023</Date>
+        </ThirdSubContent>  
+        </TimeAndDate>
 
+        </ChangedStrip>
+      }
 
-
-        </Wrapper>
-
-    </Container>
+     </Wrapper>
+  </>
     
   )
 }
 
-export default IndexTaskPage
+export default IndexTaskPage;
