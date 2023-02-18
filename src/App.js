@@ -10,16 +10,21 @@ import Home from './pages/Home';
 import Login from './pages/loginpage';
 import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
-import Quiz from './pages/pdequestions/index'
+import Quiz from './pages/pdequestions/index';
+import ProtectedRoute from '../src/component/shared/ProtectedRoute';
+import { AuthContextProvider } from "./component/shared/AuthContext";
 
 function App() {
   return (
-  <div className="main">
+  <AuthContextProvider>
       <Routes>    
         <Route path="/"  element={<Home />}/>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/login" element={
+        <ProtectedRoute accessBy="non-authenticated">
+          <Login />
+        </ProtectedRoute>}/>
         <Route path="/registration" element={<Registration />}/>
-          <Route path="/dashboard" element={<SideBar />}>
+          <Route path="/dashboard" element={<ProtectedRoute accessBy="authenticated"><SideBar /></ProtectedRoute>}>
               <Route index element={<Dashboard />} />
               <Route path='dailyroutinue' element={<DailyRoutinue />} />
               <Route path='stats' element={<Stats />} />
@@ -29,7 +34,7 @@ function App() {
               <Route path='quiz' element={<Quiz/>} />
           </Route>
       </Routes>
-  </div>
+  </AuthContextProvider>
   );
 }
 

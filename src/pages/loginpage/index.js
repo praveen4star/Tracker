@@ -1,12 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState,useRef,useContext} from 'react'
 import styled from 'styled-components'
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
-
-
-
-
+import AuthContext from "../../component/shared/AuthContext";
 const Container = styled.div`
 
 width: 100%;
@@ -156,43 +152,47 @@ color: blue;
 `;
 
 const Login = () => {
+  const {login}= useContext(AuthContext)
 
+  const errRef=useRef();
   const navigate=useNavigate();
-
-  const [login, setLogin] = useState({
+  const [errMsg,setErrMsg]=useState('');
+   
+  const [logindet, setLogin] = useState({
     email:"",
     password:"",
   });
-  const [records, setRecords] = useState([]);
 
+ 
 const handleInput = (e)=>{
   const name = e.target.name; 
   const value = e.target.value;
-  console.log(name,value);
-
-  setLogin({...login,[name]:value});
+  setLogin({...logindet,[name]:value});
 }
 
+const{email,password}=logindet;
 
-const handleSubmit = (e)=>{
+
+const handleSubmit = async (e) => {
   e.preventDefault();
-  
-  const newRecords = {...login, id: new Date().getTime().toString()}
-  console.log(records);
-  setRecords([...records,newRecords]);
-  console.log(records);
+  let payload = {
+    email: email,
+    password: password
+  }
+  await login(payload);
+};
 
-  setLogin({email:"",password:""})
 
-}
 
   return (
     <>
     <Container>
+    
       <HelloText>
         <Hello>Hi, Welcome Back !</Hello>
       </HelloText>
-    <Form action=''onSubmit={handleSubmit}>
+      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p> 
+    <Form action='' onSubmit={handleSubmit}>
       <MainBox>
       <FieldText >
         <TextSpan htmlFor='email'>Email</TextSpan>

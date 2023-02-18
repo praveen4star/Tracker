@@ -3,25 +3,11 @@ import styled from 'styled-components'
 import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
-// import { makeStyles } from '@mui/styles';
 import {Paper} from '@mui/material';
 
 
 
 
-// const useStyles = makeStyles({
-//   gridContainer:{
-//     height:'100vh',
-//     width:'100%',
-//     display:'flex',
-//     alignItems:'center',
-//     justifyContent:'center',
-//     paddingLeft: '32px',
-//     overflowY:'scroll',
-//     scrollBehavior:'smooth',
-//    }
-  
-// });
 
 
 const ContainerSecond = styled.div`
@@ -60,13 +46,8 @@ color: blue;
 `;
 
 
-
-
-
-
-
 const Index = () => {
-  // const classes = useStyles();
+ 
   return (
     
     
