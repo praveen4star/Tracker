@@ -4,6 +4,7 @@ import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
 import {Paper} from '@mui/material';
+import Heatmap from '../../component//Heatmap';
 import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
 const ContainerSecond = styled.div`
@@ -79,8 +80,9 @@ const Index = () => {
           <Grid item xs={12} sm={6} md={4}>
           <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
           </Grid>
-       </Grid>
+        </Grid>
         </ContainerSecond>
+        <Heatmap />
     </Container>
 
     
