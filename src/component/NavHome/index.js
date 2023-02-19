@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -14,14 +14,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from 'assets/images/logo.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
-
+import AuthContext from "../shared/AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Features','Contact'];
 
 function DrawerAppBar(props) {
-
+  const {user}= useContext(AuthContext)
+  const navigate=useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -92,9 +93,13 @@ const handleDrawerToggle = () => {
               </Button>
             )) }
               
-            <Button  sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
+           { 
+           user?<Button onClick={()=>navigate("/dashboard")} sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
+                 dashboard
+            </Button>:<Button onClick={()=>navigate("/login")} sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
                  login
             </Button>
+            }
           </Box>
           </ThemeProvider>
         </Toolbar>
