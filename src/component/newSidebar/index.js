@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useContext} from 'react';
 import AppBar from '@mui/material/AppBar'; 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -15,10 +15,13 @@ import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 import Navbar from '../navbar/index';
 import {Outlet} from 'react-router-dom';
-
+import AuthContext from '../shared/AuthContext';
+import { useNavigate } from 'react-router-dom';
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
+  const navigate=useNavigate();
+  const{logout}=useContext(AuthContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -38,10 +41,16 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {pagesData.map((data, index) => (
+          data.name=="logout"?
+          <ListItemButton>
           <ListItem key={index} disablePadding>
-            <ListItemButton href={data.path}>
+              <Box sx={{ml:"20px"}}  className="nav_icon" >{data.icon}</Box>
+           <ListItemText onClick={()=>logout()} sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
+           </ListItem>
+           </ListItemButton>: <ListItem key={index} disablePadding>
+            <ListItemButton href={`dashboard${data.path}`}>
               <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
-              <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
+           <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
             </ListItemButton>
            </ListItem>
         ))}
