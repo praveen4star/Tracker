@@ -7,17 +7,19 @@ import {Paper} from '@mui/material';
 import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
 const ContainerSecond = styled.div`
+
 height: auto;
+width:100%;
 overflow-y: scroll;
 
 `
 const Container = styled.div`
 margin-top:100px;
+width:100%;
 height: auto;
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
+
 
 `;
 
@@ -61,25 +63,19 @@ const Index = () => {
             <ResponsiveDialog/>  
         </Strip>
         <ContainerSecond>
-          <Grid   container pacing={4} style={
-              {
-                height:'100vh',
-                width:'100%',
+          <Grid   container  spacing={1} style={
+              { 
+                
                 display:'flex',
                 alignItems:'center',
-                justifyContent:'center',
+               
                 paddingLeft: '28px',
-                overflowY:'scroll',
-                scrollBehavior:'smooth',
               }
             }
-            xs={{ height: '100vh' }}  >
-         
-         
-          <Grid item xs={12} sm={6} md={4}>
-          <Paper style={{margin:"10px"}}><OutlinedCard/></Paper>
+           >
+       
+                <OutlinedCard/>
           </Grid>
-       </Grid>
         </ContainerSecond>
     </Container>
 

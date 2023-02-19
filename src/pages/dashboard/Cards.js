@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
 import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -94,13 +95,17 @@ const{count,desc,planName}=props;
 
  
   return (
-   <Box opentask={opentask} sx={{ minWidth: 200 }}>
-      {
-      plans.map((elem,key)=>{
-       return <Card variant="outlined"  style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} ><CardExample key={key} count={key} desc={elem.desc} planName={elem.plan_name}/></Card>
-      })
-      } 
-     </Box>
+    <React.Fragment>
+      {plans.map((elem, key)=>
+            <Grid item key={key} xs={4} sx={{maxHeight : 250 , marginBottom:'5px'}} >
+              <Box opentask={opentask} sx={{ minWidth: 200,maxWidth : 400, maxHeight : 250 }}>
+                <Card variant="outlined"  style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} ><CardExample key={key} count={key} desc={elem.desc} planName={elem.plan_name}/></Card>
+              </Box>
+            </Grid>
+          
+      )}
+
+    </React.Fragment>
   );
 }
 export default OutlinedCard;
