@@ -50,7 +50,8 @@ const Text = styled.h5`
      try{
      const response= await  jwtInterceoptor
      .post("http://localhost:9000/api/plan",payload);
-    setPlan({plan:"",desc:""});
+      setPlan({plan:"",desc:""});
+      handleClose();
     }
     catch(err){
       console.log(err);
