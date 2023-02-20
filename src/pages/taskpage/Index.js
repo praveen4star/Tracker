@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import ResponsiveDialog from './Taskpopup';
-
+import {useParams} from 'react-router-dom';
 
 
 const Wrapper = styled.div`
@@ -131,7 +131,11 @@ justify-content: center;
 `;
 
 const IndexTaskPage = () => {
+   const {id}=useParams();
 
+     useEffect=()=>{
+
+     }
     const [show, setShow] = useState(true);
   
   return (
@@ -147,7 +151,7 @@ const IndexTaskPage = () => {
             <SubContent>
                  <Circle/>
                  <PlanName>Practice daily leetcode challenge</PlanName>
-                </SubContent> 
+            </SubContent> 
          </StripContent>
         <SecondSubContent>
             <Time>06:40pm</Time>  

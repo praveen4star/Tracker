@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import jwtInterceoptor from '../../component/shared/jwtinterceptor';
+import { Link } from 'react-router-dom';
 
 const percentage = 60;
 const CardTop = styled.div`
@@ -99,7 +100,11 @@ const{count,desc,planName}=props;
       {plans.map((elem, key)=>
             <Grid item key={key} xs={4} sx={{maxHeight : 250 , marginBottom:'5px'}} >
               <Box opentask={opentask} sx={{ minWidth: 200,maxWidth : 400, maxHeight : 250 }}>
-                <Card variant="outlined"  style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} ><CardExample key={key} count={key} desc={elem.desc} planName={elem.plan_name}/></Card>
+                <Card variant="outlined"  style={{boxShadow: '2px 4px 10px 1px rgba(201,201,201,0.47)'}} onClick={setopentask} >
+                 <Link to={`task${elem._id}`}>
+                  <CardExample key={key} count={key} desc={elem.desc} planName={elem.plan_name}/>
+                </Link>
+                </Card>
               </Box>
             </Grid>
           

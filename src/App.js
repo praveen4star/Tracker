@@ -31,7 +31,7 @@ function App() {
               <Route path='stats' element={<Stats />} />
               <Route path='profile' element={<Profile />} />
               <Route path='logout' element={<Logout />} />
-              <Route path='task' element={<Taskpage/>} />
+              <Route path='task:id' element={<Taskpage/>} />
               <Route path='quiz' element={<Quiz/>} />
           </Route>
       </Routes>
