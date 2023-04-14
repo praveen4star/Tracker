@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <% if(messages.success){ %>
+        <span style="color: rgb(8, 118, 118);"> <%= messages.success %> </span>
+    <% } %>
+    <section class="container" >
+        <div class="register">
+            <button class="common" type="submit" onclick="window.location.href = '/signup';">Join The Community</button>
+        </div>
+        <div class="login">
+            <button class="common" type="submit" onclick="window.location.href = '/login';">Allready a User</button>
+        </div>
+    </section>
+</body>
+</html>
