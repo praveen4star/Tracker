@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Box, Grid ,Link,Typography} from "@mui/material";
+import {  Box, Grid ,Typography} from "@mui/material";
 import about1 from 'assets/images/about1.png';
 import about2 from 'assets/images/about2.png';
 

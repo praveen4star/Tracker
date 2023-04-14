@@ -156,8 +156,7 @@ const Login = () => {
 
   const errRef=useRef();
   const navigate=useNavigate();
-  const [errMsg,setErrMsg]=useState('');
-   
+  const errMsg = "";
   const [logindet, setLogin] = useState({
     email:"",
     password:"",

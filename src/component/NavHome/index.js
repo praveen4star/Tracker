@@ -43,7 +43,7 @@ const handleDrawerToggle = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-         <img src={logo} width="50px" height="60px"/>
+         <img src={logo} alt='logo' width="50px" height="60px"/>
       </Typography>
       <Divider />
       <List>
@@ -81,7 +81,7 @@ const handleDrawerToggle = () => {
 
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }}}>
-          <img src={logo} width="50px" height="60px"/>
+          <img src={logo} alt='logo' width="50px" height="60px"/>
           </Box>
           
 

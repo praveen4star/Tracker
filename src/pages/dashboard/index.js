@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
-import {Paper} from '@mui/material';
 import Heatmap from '../../component//Heatmap';
 import jwtInterceoptor from '../../component/shared/jwtinterceptor';
 
@@ -55,7 +54,7 @@ const Index = () => {
           setUser(response?.data);
           console.log(user.fName);
       });
-  }, []);
+  }, [user]);
  
   return (
     <Container>

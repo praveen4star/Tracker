@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Box, Grid ,Link,Typography} from "@mui/material";
+import { Box, Grid ,Link,Typography} from "@mui/material";
 import Logo from 'assets/images/logo.png';
 import insta from 'assets/images/instagram.png';
 import youtube from 'assets/images/youtube.png';
@@ -16,8 +16,7 @@ import linkedin from 'assets/images/linkedin.png';
     }
 
  const lowerfooter={
-        height:"50px",
-        height : '20%',
+        height:"30px",
         backgroundColor:"rgba(0, 0, 0, 0.49)",
         textAlign:"center"
     }

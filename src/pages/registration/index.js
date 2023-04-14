@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState,useEffect,useRef } from 'react';
+import { useState,useRef } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -185,7 +185,7 @@ const Registration = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const { fName,lName,email,proname,password,confirmpassword}=userRegistration;
-    if (password!=confirmpassword) { 
+    if (password !== confirmpassword) { 
         setErrMsg("Password Does'nt Match");
         return;
     }
@@ -198,7 +198,7 @@ const Registration = () => {
               withCredentials: true
           }
       );
-      if(response?.data?.message=="successfully user has created his account"){
+      if(response?.data?.message ==="successfully user has created his account"){
              Navigate('/login');
       }
       userRegistration({name:"",email:"",proname:"",password:"",confirmpassword:""});

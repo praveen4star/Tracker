@@ -1,7 +1,6 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ResponsiveDialog from './Taskpopup';
-import {useParams} from 'react-router-dom';
 
 
 const Wrapper = styled.div`
@@ -131,11 +130,7 @@ justify-content: center;
 `;
 
 const IndexTaskPage = () => {
-   const {id}=useParams();
-
-     useEffect=()=>{
-
-     }
+  //  const {id}=useParams();
     const [show, setShow] = useState(true);
   
   return (

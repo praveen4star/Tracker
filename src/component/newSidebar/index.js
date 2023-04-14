@@ -16,11 +16,9 @@ import profile1 from "assets/images/profile1.png";
 import Navbar from '../navbar/index';
 import {Outlet} from 'react-router-dom';
 import AuthContext from '../shared/AuthContext';
-import { useNavigate } from 'react-router-dom';
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
-  const navigate=useNavigate();
   const{logout}=useContext(AuthContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -41,7 +39,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {pagesData.map((data, index) => (
-          data.name=="logout"?
+          data.name ==="logout"?
           <ListItemButton>
           <ListItem key={index} disablePadding>
               <Box sx={{ml:"20px"}}  className="nav_icon" >{data.icon}</Box>
