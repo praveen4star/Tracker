@@ -21,13 +21,14 @@ const Home = () => {
         <Box sx={boxStyle}>
             <Paper sx={paperStyle} elevation={3} >
                 <Grid container spacing={1} sx={gridStyle}>
-                    <Grid item xs={2} md={2} ><img src={Logo} alt="logo" loading='lazy' style={{height : '3.2rem'}}></img> </Grid>
-                    <Grid item xs={2} md={2}> Home </Grid>
-                    <Grid item xs={2} md={2}> About </Grid>
-                    <Grid item xs={2} md={2}> Features </Grid>
-                    <Grid item xs={2} md={2}> Contacts </Grid>
-                    <Grid item xs={2} md={2}> Login Button </Grid>
-                    <Grid item xs={2} md={2}> Sign up Button </Grid>
+                    <Grid item xs={2} md={1.5} ><img src={Logo} alt="logo" loading='lazy' style={{height : '3.2rem'}}></img> </Grid>
+                    <Grid item xs={2} md={1.5}> Home </Grid>
+                    <Grid item xs={2} md={1.5}> About </Grid>
+                    <Grid item xs={2} md={1.5}> Features </Grid>
+                    <Grid item xs={2} md={1.5}> Contacts </Grid>
+                    <Grid item xs={2} md={1.5}> Login Button </Grid>
+                    
+                    <Grid item xs={2} md={1.5}> Sign up Button </Grid>
                     
                 </Grid>
             </Paper>
