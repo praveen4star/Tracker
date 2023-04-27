@@ -12,12 +12,12 @@ import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
 import Quiz from './pages/pdequestions/index';
 import ProtectedRoute from '../src/component/shared/ProtectedRoute';
-import { AuthContextProvider } from "./component/shared/AuthContext";
-
+import store from 'store/store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-  <AuthContextProvider>
+    <Provider store={store}>
       <Routes>    
         <Route path="/"  element={<Home />}/>
         <Route path="/login" element={
@@ -35,7 +35,7 @@ function App() {
               <Route path='quiz' element={<Quiz/>} />
           </Route>
       </Routes>
-  </AuthContextProvider>
+  </Provider>
   );
 }
 

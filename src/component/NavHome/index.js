@@ -14,14 +14,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from 'assets/images/logo.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AuthContext from "../shared/AuthContext";
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Features','Contact'];
 
 function DrawerAppBar(props) {
-  const {user}= useContext(AuthContext)
+  const{user}=useSelector((state)=>state.auth);
   const navigate=useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);

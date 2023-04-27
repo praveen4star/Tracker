@@ -1,8 +1,11 @@
-import React,{useState,useRef,useContext} from 'react'
-import styled from 'styled-components'
+import React,{useState,useRef,useContext} from 'react';
+import styled from 'styled-components';
 import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from "../../component/shared/AuthContext";
+import { useDispatch, useSelector } from "react-redux";   
+import { logauth } from '../../store/authSlice';
+
+
 const Container = styled.div`
 
 width: 100%;
@@ -152,8 +155,7 @@ color: blue;
 `;
 
 const Login = () => {
-  const {login}= useContext(AuthContext)
-
+  
   const errRef=useRef();
   const navigate=useNavigate();
   const errMsg = "";
@@ -162,7 +164,9 @@ const Login = () => {
     password:"",
   });
 
- 
+  const { isLoggedIn,user } = useSelector((state) => state.auth);
+
+
 const handleInput = (e)=>{
   const name = e.target.name; 
   const value = e.target.value;
@@ -170,7 +174,7 @@ const handleInput = (e)=>{
 }
 
 const{email,password}=logindet;
-
+const dispatch=useDispatch();
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -178,10 +182,18 @@ const handleSubmit = async (e) => {
     email: email,
     password: password
   }
-  await login(payload);
+
+dispatch(logauth(payload))
+  .unwrap()
+  .then(() => {
+    navigate("/dashboard");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
 
-
+ 
 
   return (
     <>
@@ -200,7 +212,7 @@ const handleSubmit = async (e) => {
         <Input 
         type='email'
         autoComplete='off'
-        value={login.email}
+        value={logindet.email}
         onChange={handleInput}
         name='email'
         id='email'/>
@@ -215,7 +227,7 @@ const handleSubmit = async (e) => {
         <Input
          type='password'
          autoComplete='off' 
-         value={login.password}
+         value={logindet.password}
          onChange={handleInput}
          name='password' 
          id='password'/>
@@ -233,12 +245,10 @@ const handleSubmit = async (e) => {
         <OrWithText> <MidText>or With</MidText></OrWithText>
 
       <FbButton >
-       
         Login With Facebook
       </FbButton>
       <GoogleButton  style={{margin : "10px"}}>
-        
-       Login With Google
+         Login With Google
       </GoogleButton>
       <SignupSection>
         <MidText>Don't have an account</MidText>

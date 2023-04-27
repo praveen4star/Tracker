@@ -15,11 +15,10 @@ import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 import Navbar from '../navbar/index';
 import {Outlet} from 'react-router-dom';
-import AuthContext from '../shared/AuthContext';
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
-  const{logout}=useContext(AuthContext);
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -43,7 +42,7 @@ function ResponsiveDrawer(props) {
           <ListItemButton>
           <ListItem key={index} disablePadding>
               <Box sx={{ml:"20px"}}  className="nav_icon" >{data.icon}</Box>
-           <ListItemText onClick={()=>logout()} sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
+           <ListItemText onClick={()=>console.log("call logout function")} sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
            </ListItem>
            </ListItemButton>: <ListItem key={index} disablePadding>
             <ListItemButton href={`dashboard${data.path}`}>

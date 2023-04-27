@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import  AuthContext  from "./AuthContext";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
+
 const ProtectedRoute = ({ children, accessBy }) => {
-  const {user}= useContext(AuthContext);
+  const {user}= useSelector((state)=>state.auth);
 
   if (accessBy === "non-authenticated") {
     if (!user) {
