@@ -7,7 +7,7 @@ import { Grid } from '@mui/material';
 import styled from 'styled-components';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import jwtInterceoptor from '../../component/shared/jwtinterceptor';
+import jwtInterceoptor from 'utils/jwtinterceptor';
 import { Link } from 'react-router-dom';
 
 const percentage = 60;

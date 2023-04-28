@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useParams } from 'react-router-dom';
-import jwtInterceoptor from '../../component/shared/jwtinterceptor';
+import jwtInterceoptor from 'utils/jwtinterceptor';
 
 
 

@@ -4,7 +4,7 @@ import OutlinedCard from './Cards';
 import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
 import Heatmap from '../../component//Heatmap';
-import jwtInterceoptor from '../../component/shared/jwtinterceptor';
+import jwtInterceoptor from 'utils/jwtinterceptor';
 
 const ContainerSecond = styled.div`
 
@@ -50,9 +50,7 @@ const Index = () => {
     jwtInterceoptor
       .get("http://localhost:9000/api/users/user")
       .then((response) => {
-        console.log(response)
           setUser(response?.data);
-          console.log(user.fName);
       });
   }, [user]);
  

@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import Stack from '@mui/material/Stack';
-import jwtInterceoptor from '../../component/shared/jwtinterceptor';
+import jwtInterceoptor from 'utils/jwtinterceptor';
 
 
 const Text = styled.h5`

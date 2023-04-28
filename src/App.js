@@ -11,7 +11,7 @@ import Login from './pages/loginpage';
 import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
 import Quiz from './pages/pdequestions/index';
-import ProtectedRoute from '../src/component/shared/ProtectedRoute';
+import ProtectedRoute from './utils/ProtectedRoute';
 import store from 'store/store';
 import { Provider } from 'react-redux';
 

@@ -3,7 +3,7 @@ import axios from "axios";
 const jwtInterceoptor = axios.create({});
 
 jwtInterceoptor.interceptors.request.use((config) => {
-  let tokensData = JSON.parse(localStorage.getItem("tokens"));
+  let tokensData = JSON.parse(localStorage.getItem("user"));
   config.headers.set("x-access-token",tokensData);
   return config;
 });
@@ -14,7 +14,7 @@ jwtInterceoptor.interceptors.request.use((config) => {
 //   },
 //   async (error) => {
 //     if (error.response.status === 401) {
-//       const authData = JSON.parse(localStorage.getItem("tokens"));
+//       const authData = JSON.parse(localStorage.getItem("user"));
 //       const payload = {
 //         access_token: authData.access_token,
 //         refresh_token: authData.refreshToken,
