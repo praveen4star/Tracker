@@ -1,7 +1,7 @@
 import React,{useState,useRef,useContext} from 'react';
 import styled from 'styled-components';
 import { Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import {Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";   
 import { logauth } from '../../store/authSlice';
 
@@ -187,13 +187,16 @@ dispatch(logauth(payload))
   .unwrap()
   .then(() => {
     navigate("/dashboard");
+    window.location.reaload()
   })
   .catch((err) => {
     console.log(err);
   });
 };
 
- 
+ if(isLoggedIn){
+  return <Navigate to="/dashboard" />;
+ }
 
   return (
     <>

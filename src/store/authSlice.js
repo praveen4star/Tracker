@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {loginInfo,logout}  from "../services/auth.service";
 import { createSlice } from "@reduxjs/toolkit";
-const user = JSON.parse(localStorage.getItem("token"));
+const user = JSON.parse(localStorage.getItem("user"));
 
 
 export const logauth = createAsyncThunk(
@@ -26,7 +26,6 @@ const authSlice = createSlice({
   extraReducers: {
     [logauth.fulfilled]: (state, action) => {
       state.isLoggedIn = true;
-      console.log(action.payload);
       state.user = action.payload.user;
     },
     [logauth.rejected]: (state, action) => {

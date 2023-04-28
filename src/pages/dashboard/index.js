@@ -5,6 +5,8 @@ import ResponsiveDialog from './Popup';
 import { Grid } from '@mui/material';
 import Heatmap from '../../component//Heatmap';
 import jwtInterceoptor from 'utils/jwtinterceptor';
+import {useSelector} from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 const ContainerSecond = styled.div`
 
@@ -46,6 +48,8 @@ color: blue;
 const Index = () => {
   const[user,setUser]=useState({});
 
+  const{isLoggedIn}=useSelector((state)=>state.auth);
+
   useEffect(() => {
     jwtInterceoptor
       .get("http://localhost:9000/api/users/user")
@@ -54,6 +58,10 @@ const Index = () => {
       });
   }, [user]);
  
+  if(!isLoggedIn){;
+    return <Navigate to="/login"/>
+  }
+
   return (
     <Container>
         <Strip>

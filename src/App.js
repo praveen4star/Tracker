@@ -11,7 +11,6 @@ import Login from './pages/loginpage';
 import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
 import Quiz from './pages/pdequestions/index';
-import ProtectedRoute from './utils/ProtectedRoute';
 import store from 'store/store';
 import { Provider } from 'react-redux';
 
@@ -20,12 +19,9 @@ function App() {
     <Provider store={store}>
       <Routes>    
         <Route path="/"  element={<Home />}/>
-        <Route path="/login" element={
-        <ProtectedRoute accessBy="non-authenticated">
-          <Login />
-        </ProtectedRoute>}/>
+        <Route path="/login" element={<Login />}/>
         <Route path="/registration" element={<Registration />}/>
-          <Route path="/dashboard" element={<ProtectedRoute accessBy="authenticated"><SideBar /></ProtectedRoute>}>
+          <Route path="/dashboard" element={<SideBar />}>
               <Route index element={<Dashboard />} />
               <Route path='dailyroutinue' element={<DailyRoutinue />} />
               <Route path='stats' element={<Stats />} />
