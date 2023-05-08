@@ -4,13 +4,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import Stack from '@mui/material/Stack';
 import jwtInterceoptor from 'utils/jwtinterceptor';
-
+import './Card.css';
 
 const Text = styled.h5`
 
@@ -49,7 +48,7 @@ const Text = styled.h5`
      e.preventDefault();
      try{
      const response= await  jwtInterceoptor
-     .post("http://localhost:9000/api/plan",payload);
+     .post("https://tracker-8glk.onrender.com/api/plan",payload);
       setPlan({plan:"",desc:""});
        handleClose();
        console.log(response);
@@ -63,9 +62,7 @@ const Text = styled.h5`
   
 return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen}>
-        Add Plan
-      </Button>
+      <button className="addPlan" onClick={handleClickOpen}>Add Plan</button>
       <Dialog
         open={open}
         onClose={handleClose}

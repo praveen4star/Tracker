@@ -1,4 +1,4 @@
-export const Base_URL = "http://localhost:9000/api";
+export const Base_URL = "https://tracker-8glk.onrender.com/api";
 
 export const METHOD_TYPE = {
     GET: "GET",

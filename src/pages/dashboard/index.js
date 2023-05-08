@@ -1,93 +1,49 @@
-import React,{useEffect,useState} from 'react'
-import styled from 'styled-components'
-import OutlinedCard from './Cards';
+import React,{useEffect,useState} from 'react';
+import Card from './Cards';
 import ResponsiveDialog from './Popup';
-import { Grid } from '@mui/material';
-import Heatmap from '../../component//Heatmap';
-import jwtInterceoptor from 'utils/jwtinterceptor';
 import {useSelector} from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import API from '../../utils/api';
 
-const ContainerSecond = styled.div`
-
-height: auto;
-width:100%;
-overflow-y: scroll;
-
-`
-const Container = styled.div`
-margin-top:100px;
-width:100%;
-height: auto;
-display: flex;
-flex-direction: column;
-
-
-`;
-
-const Strip = styled.div`
-margin: 1rem;
-padding: 1rem;
-width: 96%;
-border: 0px solid grey;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: space-between;
--webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
-box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
-`;
-const Text = styled.h1`
-
-`;
-const MidText = styled.span`
-color: blue;
-`;
-
-
-const Index = () => {
-  const[user,setUser]=useState({});
-
-  const{isLoggedIn}=useSelector((state)=>state.auth);
+const Dashboard = () => {
+  const[plans,setPlans]=useState([]);
+  const{isLoggedIn,user}=useSelector((state)=>state.auth);
+ 
+  const fetchPlan=async()=>{
+    try{
+      function callback(flag,res){
+        console.log(res)
+        setPlans(res);
+       }
+      API.getPlan(callback);
+     }
+    catch(err){
+     console.log(err)
+    }
+  }
 
   useEffect(() => {
-    jwtInterceoptor
-      .get("http://localhost:9000/api/users/user")
-      .then((response) => {
-          setUser(response?.data);
-      });
-  }, [user]);
- 
+     fetchPlan();
+   }, []);
+
+
   if(!isLoggedIn){;
     return <Navigate to="/login"/>
   }
 
   return (
-    <Container>
-        <Strip>
-            <Text>Hello <MidText>{user.fName}</MidText></Text>
-            <ResponsiveDialog/>  
-        </Strip>
-        <ContainerSecond>
-          <Grid   container  spacing={1} style={
-              { 
-                
-                display:'flex',
-                alignItems:'center',
-               
-                paddingLeft: '28px',
-              }
-            }
-           >
-       
-                <OutlinedCard/>
-          </Grid>
-        </ContainerSecond>
-        <Heatmap />
-    </Container>
-
-    
+    <div className="dashboard">
+    <div className="user-welcome">
+      <p className="welcome-text">Hello<span className="user-name">Avenya</span></p>
+      <ResponsiveDialog />
+    </div>
+    <div className="card-par">
+      {
+      plans&&plans.map((plan,index)=><Card key={plan._id} number={index+1} name={plan.plan_name} desc={plan.desc} />)
+      } 
+    </div>
+   </div>
   )
 }
 
-export default Index
+export default Dashboard;

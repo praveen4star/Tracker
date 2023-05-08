@@ -1,0 +1,133 @@
+.dashboard{
+ width:100%;
+}
+
+/*user-welcome*/
+.user-welcome{
+    margin-top: 150px;
+    display:flex;
+    justify-content:space-between;
+}
+ 
+@media only screen and (max-width:432px) {
+    .user-welcome{
+    flex-direction:column;
+    align-items: center;
+    }
+  }
+
+  .welcome-text{
+    font-family: lato;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    margin-left:40px; 
+  }
+  
+  .welcome-text .user-name{
+      margin-left:20px;
+      color:rgba(8, 32, 243, 0.75);
+  }
+
+  /* addplan button */
+  .user-welcome .addPlan{
+    cursor:pointer;
+    height: 43px;
+    width: 106px;
+    background-color: rgba(8, 32, 243, 0.75);
+    color: white;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    margin-right:50px;
+}
+
+/* card-par*/
+.card-par{
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-top:80px;
+    margin-bottom:50px;
+}
+
+@media only screen and (min-width:709px) {
+    .card-par {
+    margin-left:40px;
+    }
+  }
+
+@media only screen and (max-width:709px) {
+    .card-par {
+     justify-content:center;
+    }
+  }
+
+/* card */
+.card{
+    width:220px;
+    background-color: #F5F5F5;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    min-height:200px;  
+    height:auto;
+}
+
+/* card warapper style */
+.card .card-wrapper{
+    display:flex;
+    justify-content:space-around;
+    width:auto;
+    margin-top:10px;
+ }
+
+ .card-wrapper .circle{
+    padding-right:auto; 
+    padding-left:auto;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    border-radius:50%;
+    font-size:20px;
+    color:#fff;
+    text-align:center;
+    background:rgba(8, 32, 243, 0.75);
+}
+
+.card-wrapper .card-text1{
+    font-size:20px;
+    line-height:30px;
+    font-weight:300;
+}
+
+.card-wrapper .card-text2{
+    line-height:33px;
+}
+
+/* progress div styles */
+.pro-wrapper{
+    display:flex;
+    margin-top:20px;
+ }
+
+ .pro-wrapper .progress{
+    width:60px;
+    height:60px;
+    margin-left:10px;
+ }
+
+ .pro-wrapper .progress-text{
+    margin-left:23px;
+    line-height:55px;
+    font-size:30px;
+    font-weight:bold;
+ }
+
+ /* Description style */
+.card-description{
+    text-align: center;
+    margin-top:30px;
+    margin-bottom:10px;
+}
+
+
+
