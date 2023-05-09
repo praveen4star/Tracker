@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import Stack from '@mui/material/Stack';
-import jwtInterceoptor from 'utils/jwtinterceptor';
+import API from '../../utils/api';
 import './Card.css';
 
 const Text = styled.h5`
@@ -47,11 +47,11 @@ const Text = styled.h5`
    const handleSubmit = async(e)=>{
      e.preventDefault();
      try{
-     const response= await  jwtInterceoptor
-     .post("https://tracker-8glk.onrender.com/api/plan",payload);
-      setPlan({plan:"",desc:""});
-       handleClose();
-       console.log(response);
+      function callback(flag,res){
+        setPlan({plan:"",desc:""});
+        handleClose();
+       }
+      API.createPlan(payload,callback);
     }
     catch(err){
       console.log(err);
