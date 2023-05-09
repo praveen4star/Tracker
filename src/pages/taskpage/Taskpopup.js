@@ -8,8 +8,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useParams } from 'react-router-dom';
-import jwtInterceoptor from 'utils/jwtinterceptor';
+import { useSearchParams } from 'react-router-dom';
+import API from '../../utils/api';
 
 
 
@@ -22,8 +22,8 @@ const Text = styled.h5`
 
 
  const  ResponsiveDialog =()=> {
-  let {id}=useParams();
-  
+  const [params]=useSearchParams();
+  const id=params.get("t");
   const [open, setOpen] = React.useState(false);
 
   const [task,setTask] = useState({ "plan_id" :"",
@@ -36,7 +36,6 @@ const Text = styled.h5`
   const handleInput=(e)=>{
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name,value);
      setTask({...task, [name]:value })
   }
 
@@ -63,19 +62,13 @@ const handleClickOpen = () => {
 
   const handleSave = async(e)=>{
     e.preventDefault();
-    console.log(payload);
     try{
-    const response= await  jwtInterceoptor
-    .post("http://localhost:9000/api/task",payload);
-    console.log(response);
-     setTask({ "plan_id" :"",
-  "task_name" :"",
-  "date" : "",
-  "timing" : "",
-  "is_daily_task" : false
-});
-     handleClose();
-   }
+      function callback(flag,res){
+        setTask({ "plan_id" :"","task_name" :"","date" : "","timing" : "","is_daily_task" : false});
+        handleClose();
+      }
+    API.createTask(payload,callback);
+     }
    catch(err){
      console.log(err);
    }

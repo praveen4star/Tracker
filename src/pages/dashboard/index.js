@@ -2,9 +2,8 @@ import React,{useEffect,useState} from 'react';
 import Card from './Cards';
 import ResponsiveDialog from './Popup';
 import {useSelector} from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import API from '../../utils/api';
-
+import {Link,Navigate } from 'react-router-dom';
 const Dashboard = () => {
   const[plans,setPlans]=useState([]);
   const{isLoggedIn,user}=useSelector((state)=>state.auth);
@@ -39,7 +38,11 @@ const Dashboard = () => {
     </div>
     <div className="card-par">
       {
-      plans&&plans.map((plan,index)=><Card key={plan._id} number={index+1} name={plan.plan_name} desc={plan.desc} />)
+       plans&&plans.map((plan,index)=>
+        <Link key={plan._id} to={"/dashboard/task?t=" + plan._id}>
+         <Card key={plan._id} number={index+1} name={plan.plan_name} desc={plan.desc} />
+        </Link>
+       )
       } 
     </div>
    </div>

@@ -13,5 +13,9 @@ const createPlan=(payload,callback)=>{
   fetchAndProcesd("/plan",METHOD_TYPE.POST,payload,callback);
 }
 
-const API = { loginInfo,getPlan,createPlan};
+const createTask=(payload,callback)=>{
+  fetchAndProcesd("/task",METHOD_TYPE.POST,payload,callback);
+}
+
+const API = { loginInfo,getPlan,createPlan,createTask};
 export default API;
