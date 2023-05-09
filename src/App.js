@@ -11,6 +11,8 @@ import Login from './pages/loginpage';
 import Registration from './pages/registration';
 import Taskpage from './pages/taskpage/Index';
 import Quiz from './pages/pdequestions/index';
+import Upcoming from './pages/upcoming';
+import Today from './pages/today';
 import store from 'store/store';
 import { Provider } from 'react-redux';
 
@@ -27,8 +29,10 @@ function App() {
               <Route path='stats' element={<Stats />} />
               <Route path='profile' element={<Profile />} />
               <Route path='logout' element={<Logout />} />
-              <Route path='task:id' element={<Taskpage/>} />
+              <Route path='task' element={<Taskpage/>} />
               <Route path='quiz' element={<Quiz/>} />
+              <Route path='upcoming' element={<Upcoming/>} />
+              <Route path='today' element={<Today/>} />
           </Route>
       </Routes>
   </Provider>

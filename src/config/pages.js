@@ -7,12 +7,12 @@ import NextPlanOutlinedIcon from '@mui/icons-material/NextPlanOutlined';
 
 const pagesData = [
     { name: "dashboard", icon: <RiDashboardFill />, path : "/dashboard" },
-    { name: "Today", icon: < EventOutlinedIcon />, path : "/today" },
-    { name: "Upcoming", icon: < NextPlanOutlinedIcon />, path : "/upcoming" },
-    { name: "Daily Routinue", icon: <RiCalendarEventFill />, path : "/dailyroutinue" },
-    { name: "stats", icon: <ImStatsDots /> ,path : "/stats"},
-    { name: "profile", icon : <CgProfile /> , path : "/profile"},
-    { name: "logout", icon : <MdLogout />, path : "/logout"}
+    { name: "Today", icon: < EventOutlinedIcon />, path : "today" },
+    { name: "Upcoming", icon: < NextPlanOutlinedIcon />, path : "upcoming" },
+    { name: "Daily Routinue", icon: <RiCalendarEventFill />, path : "dailyroutinue" },
+    { name: "stats", icon: <ImStatsDots /> ,path : "stats"},
+    { name: "profile", icon : <CgProfile /> , path : "profile"},
+    { name: "logout", icon : <MdLogout />, path : "logout"}
     
 ]
 

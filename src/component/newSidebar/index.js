@@ -14,7 +14,8 @@ import pagesData from "config/pages";
 import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 import Navbar from '../navbar/index';
-import {Outlet} from 'react-router-dom';
+import {Outlet,Link} from 'react-router-dom';
+
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
@@ -45,10 +46,12 @@ function ResponsiveDrawer(props) {
            <ListItemText onClick={()=>console.log("call logout function")} sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
            </ListItem>
            </ListItemButton>: <ListItem key={index} disablePadding>
-            <ListItemButton href={`dashboard${data.path}`}>
-              <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
-           <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
-            </ListItemButton>
+            <Link to={`${data.path}`} style={{textDecoration:"none",color:"black"}}>
+              <ListItemButton>
+                <Box sx={{ml:"20px"}} className="nav_icon" >{data.icon}</Box>
+                <ListItemText  sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
+              </ListItemButton>
+            </Link>
            </ListItem>
         ))}
       </List>
