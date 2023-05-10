@@ -8,7 +8,7 @@ const Dashboard = () => {
   const[plans,setPlans]=useState([]);
   const{isLoggedIn,user}=useSelector((state)=>state.auth);
  
-  const fetchPlan=async()=>{
+  const fetchPlan=()=>{
     try{
       function callback(flag,res){
         console.log(res)

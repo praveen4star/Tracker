@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import ResponsiveDialog from './Taskpopup';
+import API from '../../utils/api';
 import { useSearchParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -129,60 +130,93 @@ align-items: center;
 justify-content: center;
 `;
 
-const IndexTaskPage = () => {
-  //  const {id}=useParams();
+
+  const Taskonhover=(props)=>{
+        const{name,taskdate,tasktime}=props;
     const [show, setShow] = useState(true);
-  
+    return(
+      <>
+      {
+       show? <Strip onClick={()=>setShow(!show)} >
+          <StripContent>
+            <SubContent>
+              <Circle/>
+              <PlanName>{name}</PlanName>
+            </SubContent> 
+          </StripContent>
+          <SecondSubContent>
+           <Time>{tasktime}</Time>  
+          </SecondSubContent>
+          <ThirdSubContent>
+            <Date>{taskdate.day+"/"+taskdate.month+"/"+taskdate.year}</Date>
+          </ThirdSubContent>  
+        </Strip>:
+       <ChangedStrip onClick={()=>setShow(!show)} >
+        <StripContent>
+          <SubContent>
+               <Circle/>
+               <PlanName>{name}</PlanName>
+          </SubContent> 
+          
+       </StripContent>
+      <Desc>
+         <DescText>Hello I am Groot and I am cutest Avenger </DescText>
+      </Desc>
+      <TimeAndDate>
+      <SecondSubContent>
+          <Time>{tasktime}</Time>  
+      </SecondSubContent>
+      <ThirdSubContent>
+              <Date>{taskdate.day+"/"+taskdate.month+"/"+taskdate.year} </Date>
+      </ThirdSubContent>  
+      </TimeAndDate>
+
+      </ChangedStrip>
+     }
+    </>
+    )
+  }
+
+ 
+
+
+const TaskPage =() => {
+    const [tasks,setTask]=useState([]);
+    const [params]=useSearchParams();
+    const id=params.get("t");
+    const payload={
+      "plan_id":id
+    }
+
+    const fetchTask=()=>{
+      try{
+        function callback(flag,res){  
+          setTask(res.data);   
+        }
+        API.getTask(payload,callback);
+      }
+      catch(err){
+        console.log(err);
+      }
+   }
+
+   useEffect(()=>{
+    fetchTask();
+   },[])
+
   return (
     <>
       <Wrapper>
-        <NewStrip >
-            <TaskName>Development</TaskName>
-            <ResponsiveDialog/>
+        <NewStrip>
+          <TaskName>Development</TaskName>
+          <ResponsiveDialog/>
         </NewStrip>
-        
-    { show? <Strip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-            </SubContent> 
-         </StripContent>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-          
-            
-        </Strip>:<ChangedStrip onClick={()=>setShow(!show)} >
-        <StripContent>
-            <SubContent>
-                 <Circle/>
-                 <PlanName>Practice daily leetcode challenge</PlanName>
-            </SubContent> 
-            
-         </StripContent>
-        <Desc>
-           <DescText>Hello I am Groot and I am cutest Avenger </DescText>
-        </Desc>
-        <TimeAndDate>
-        <SecondSubContent>
-            <Time>06:40pm</Time>  
-        </SecondSubContent>
-        <ThirdSubContent>
-                <Date>30/06/2023</Date>
-        </ThirdSubContent>  
-        </TimeAndDate>
-
-        </ChangedStrip>
+      {
+      tasks&&tasks.map((task,index)=> <Taskonhover key={task._id} name={task.task_name} taskdate={task.date} tasktime={task.timing} />)
       }
-
-     </Wrapper>
-  </>
-    
-  )
+      </Wrapper>
+    </>
+   )
 }
 
-export default IndexTaskPage;
+export default TaskPage;
