@@ -15,7 +15,7 @@ import logo from "assets/images/logo.png"
 import profile1 from "assets/images/profile1.png";
 import Navbar from '../navbar/index';
 import {Outlet,Link} from 'react-router-dom';
-
+import Heatmap from 'component/Heatmap';
 const drawerWidth = 230;
 
 function ResponsiveDrawer(props) {
@@ -40,8 +40,8 @@ function ResponsiveDrawer(props) {
       <List>
         {pagesData.map((data, index) => (
           data.name ==="logout"?
-          <ListItemButton>
-          <ListItem key={index} disablePadding>
+          <ListItemButton key={index}>
+          <ListItem disablePadding>
               <Box sx={{ml:"20px"}}  className="nav_icon" >{data.icon}</Box>
            <ListItemText onClick={()=>console.log("call logout function")} sx={{ml:"20px",fontSize:"25px"}} primary={data.name} />
            </ListItem>
@@ -61,6 +61,7 @@ function ResponsiveDrawer(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <>
     <Box sx={{ display: 'flex' }}>
       <AppBar
         position="fixed"
@@ -119,6 +120,8 @@ function ResponsiveDrawer(props) {
       </Box>
       <Outlet />
     </Box>
+     <Heatmap />
+    </>
   );
 }
 

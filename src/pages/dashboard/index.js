@@ -47,7 +47,6 @@ const Dashboard = () => {
        )
       } 
     </div>
-    <Heatmap />
    </div>
   )
 }

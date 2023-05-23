@@ -10,10 +10,9 @@ const pagesData = [
     { name: "Today", icon: < EventOutlinedIcon />, path : "today" },
     { name: "Upcoming", icon: < NextPlanOutlinedIcon />, path : "upcoming" },
     { name: "Daily Routinue", icon: <RiCalendarEventFill />, path : "dailyroutinue" },
-    { name: "stats", icon: <ImStatsDots /> ,path : "stats"},
+    { name: "Personality", icon :<ImStatsDots /> , path : "quiz"},
     { name: "profile", icon : <CgProfile /> , path : "profile"},
     { name: "logout", icon : <MdLogout />, path : "logout"}
-    
-]
+    ]
 
 export default pagesData;
