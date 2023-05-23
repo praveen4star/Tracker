@@ -4,6 +4,8 @@ import ResponsiveDialog from './Popup';
 import {useSelector} from 'react-redux';
 import API from '../../utils/api';
 import {Link,Navigate } from 'react-router-dom';
+import Heatmap from 'component/Heatmap';
+
 const Dashboard = () => {
   const[plans,setPlans]=useState([]);
   const{isLoggedIn,user}=useSelector((state)=>state.auth);
@@ -45,6 +47,7 @@ const Dashboard = () => {
        )
       } 
     </div>
+    <Heatmap />
    </div>
   )
 }

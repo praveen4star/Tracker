@@ -21,5 +21,9 @@ const getTask=(payload,callback)=>{
   fetchAndProcesd("/task",METHOD_TYPE.GET,payload,callback);
 }
 
-const API = { loginInfo,getPlan,createPlan,createTask,getTask};
+const getConsistency=(callback)=>{
+  fetchAndProcesd("/task/heatmap",METHOD_TYPE.GET,null,callback);
+}
+
+const API = { loginInfo,getPlan,createPlan,createTask,getTask,getConsistency};
 export default API;

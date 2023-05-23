@@ -1,111 +1,73 @@
-import React from 'react';
-import './heatmap.css';
+import React,{useState,useEffect}  from 'react';
+import CalendarHeatmap from 'react-calendar-heatmap';
+import ReactTooltip from 'react-tooltip';
+import 'react-calendar-heatmap/dist/styles.css';
+import  './heatmap.css';
+import API from 'utils/api';
 
-import moment from 'https://cdn.skypack.dev/moment?min';
 
-const DayNames = {
-   
+
+const Heatmap=()=>{
+  const[comp,setComp]=useState([]);
+ 
+  
+  const fetchTask=()=>{
+    try{
+      API.getConsistency((flag,res)=>setComp(res.data));
+     }
+    catch(err){
+     console.log(err)
+    }
   }
-  
-  function Cell({ color }) {
-    let style = {
-      backgroundColor: color
-    }; 
-  
-    return (
-      <div className='timeline-cells-cell' style={style}></div>
-    )
-  }
-  
-  function Month({ startDate, index }) {
-    let date = moment(startDate).add(index * 7, 'day');
-    let monthName = date.format('MMM');
-  
-    return (
-      <div className={`timeline-months-month ${monthName}`}>
-        {monthName}
-      </div>
-    )
-  }
-  
-  function WeekDay({ index }) {
-    return (
-      <div className='timeline-weekdays-weekday'>
-        {DayNames[index]}
-      </div>
-    )
-  }
-  
-  
-  function Timeline({ range, data, colorFunc }) {
-    let days = Math.abs(range[0].diff(range[1], 'days'));
-    let cells = Array.from(new Array(days));
-    let weekDays = Array.from(new Array(7));
-    let months = Array.from(new Array(Math.floor(days / 7)));
-  
-    let min = Math.min(0, ...data.map(d => d.value));
-    let max = Math.max(...data.map(d => d.value));
-  
-    let colorMultiplier = 1 / (max - min);
-  
-    let startDate = range[0];
-    const DayFormat = 'DDMMYYYY';
-  
-    return (
-      <div className='timeline'>
-  
-        <div className="timeline-months">
-          {months.map((_, index) => <Month key={index} index={index} startDate={startDate} />)}
-        </div>
-  
-        <div className="timeline-body">
-  
-          <div className="timeline-weekdays">
-            {weekDays.map((_, index) => <WeekDay key={index} index={index} startDate={startDate} />)}
-          </div>
-  
-          <div className="timeline-cells">
-            {cells.map((_, index) => {
-              let date = moment(startDate).add(index, 'day');
-              let dataPoint = data.find(d => moment(date).format(DayFormat) === moment(d.date).format(DayFormat));
-              let alpha = colorMultiplier * dataPoint.value;
-              let color = colorFunc({ alpha });
-  
-              return (
-                <Cell
-                  key={index}
-                  index={index}
-                  date={date}
-                  color={color}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  }
-  
-  function HeatMap() {
-    // 1 year range
-    let startDate = moment().add(-365, 'days');
-    let dateRange = [startDate, moment()];
-  
-    let data = Array.from(new Array(365)).map((_, index) => {
-      return {
-        date: moment(startDate).add(index, 'day'),
-        value: Math.floor(Math.random() * 100)
-      };
+
+ useEffect(()=>{
+  fetchTask();
+ },[])
+
+//  to format date  like heatmap
+  let dates=[];
+   for(var i=0;i<comp.length;i++){
+    comp[i]?.data?.forEach(element => {
+      const datessplit=element?.date.split("/");
+      const count=element?.cnt;
+      const date=`${datessplit[2]}-${datessplit[1]}-${datessplit[0]}`;
+      dates.push({date,count});
     });
-  
-    return (
-      <>
-        <Timeline range={dateRange} data={data} colorFunc={({ alpha }) => `rgba(3, 160, 3, ${alpha})`} />
-      </>
-    )
-  }
+   }
 
-  
-  export default HeatMap;
+ 
+  const date=new Date();
+  const today=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+  const prevyear=`${date.getFullYear()-1}-${date.getMonth()}-${date.getDate()}`;
+  return (
+    <div>
+      <CalendarHeatmap
+        startDate={prevyear}
+        endDate={today}
+
+         values={dates}
+
+        classForValue={value => {
+          if (!value) {
+            return 'color-empty';
+          }
+          if(value.count>=4)
+            return `color-github-4`;
+            return `color-github-${value.count}`;
+        }}
+
+        tooltipDataAttrs={value => {
+          return {
+            'data-tip': `${value.date} has count: ${value.count}`,
+          };
+        }}
+        showWeekdayLabels={true}
+      />
+      <ReactTooltip />
+    </div>
+  );
+}
 
 
+
+export  default Heatmap;

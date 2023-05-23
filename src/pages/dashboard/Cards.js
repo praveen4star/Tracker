@@ -28,7 +28,7 @@ import './Card.css';
         </div>
         <div className="card-description">{desc}</div>
       </div>
-     </>
+    </>
   );
 }
 export default Plancard;
