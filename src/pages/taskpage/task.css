@@ -1,0 +1,33 @@
+.task-group{
+    width:100%;
+    margin-top:150px;
+    margin-bottom:100px;
+}
+
+/*user-welcome*/
+.plan-name{
+    display:flex;
+    justify-content:space-around;
+    margin-bottom:50px;
+}
+
+.plan-name .plan-text{
+    line-height:36px;
+    font-size:25px;
+    font-weight:200;
+}
+
+/* addTask button */
+ .addTask{
+    cursor: pointer;
+    height: 38px;
+    width: 104px;
+    background-color: rgba(8, 32, 243, 0.75);
+    color: white;
+    font-size: 20px;
+    border-radius: 7px;
+    border: none;
+    margin-right: 50px;
+}
+
+

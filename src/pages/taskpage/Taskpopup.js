@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSearchParams } from 'react-router-dom';
 import API from '../../utils/api';
-
+import './task.css'
 
 
 
@@ -76,9 +76,9 @@ const handleClickOpen = () => {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen}>
+       <button className="addTask" onClick={handleClickOpen}>
         Add Task
-      </Button>
+       </button>
       <Dialog
         open={open}
         onClose={handleClose}
