@@ -25,5 +25,9 @@ const getConsistency=(callback)=>{
   fetchAndProcesd("/task/heatmap",METHOD_TYPE.GET,null,callback);
 }
 
-const API = { loginInfo,getPlan,createPlan,createTask,getTask,getConsistency};
+const getTaskBYToday=(callback)=>{
+  fetchAndProcesd("/task/today",METHOD_TYPE.GET,null,callback);
+}
+
+const API = { loginInfo,getPlan,createPlan,createTask,getTask,getConsistency,getTaskBYToday};
 export default API;

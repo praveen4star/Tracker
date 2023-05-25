@@ -1,8 +1,32 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
+import API from '../../utils/api';
+import TaskCard from 'component/Task';
 
-function Today() {
+const Today=()=>{
+  const[todaytask,setTask]=useState([]);
+  
+  const fetchTask=()=>{
+      try{
+        API.getTaskBYToday((flag,res)=>setTask(res.data));
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+  
+   useEffect(()=>{
+        fetchTask();
+    },[]);
+
   return (
-    <div style={{marginTop:"500px"}}>Today</div>
+    <div className="today" style={{marginTop:"150px",width:"100%",marginBottom:"100px"}}>
+        {
+      todaytask&&todaytask.map((task)=>{
+        const date=`${task?.date?.day}-${task?.date?.month}-${task?.date?.year}`;
+     return  <TaskCard key={task._id} id={task._id} name={task.task_name} due={task.timinng} duedate={date} />
+        })
+      }
+    </div>
   )
 }
 
