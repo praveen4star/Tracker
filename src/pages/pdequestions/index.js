@@ -1,226 +1,188 @@
-import React,{useState} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 
 
-const MainContainer = styled.div`
-padding: 30px;
-`;
+
 
 const Container = styled.div`
-width: 100%;
-vh;
-display: flex;
-justify-content: center;
-`;
+margin-top: 80px;
+margin-left: 10px;
+`
 
-const HeadText = styled.div`
-margin: 10px;
+const Heading = styled.div`
+
 font-size: 50px;
 font-weight: bold;
-text-align: center;
-`;
-
-const Wrapper = styled.div`
-margin-top: 50px;
-height: 300px;
+width: 70%;
+margin-left: auto;
+margin-right: auto;
+`
+const Desc = styled.div`
+margin-top: 15px;
 width: 50%;
-padding-left:20px ;
-
-border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+margin-left: auto;
+margin-right: auto;
 
 
+font-size: 17px;
+font-weight: 500;
+color: grey;
+`
 
-`;
-
-
-
-const MyScore = styled.div`
-padding: 20px;
+const Total = styled.div`
+`
+const MainDiv = styled.div`
+margin-top: 20px;
 display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-
-`;
-
-const QuestionDiv = styled.div`
-
-padding: 20px;
-
-`;
-
-const QuestionNum = styled.div`
-font-weight: bold;
-
-`;
-const SecondDiv = styled.div`
-font-size: 30px;
-font-weight: 700;
-`;
-
-const ResultText = styled.div`
-font-size: 30px;
-font-weight: 700;
-`;
-
-const ThirdDiv = styled.div`
+`
+const QuesDiv = styled.div`
+margin-left: 5px;
+font-size: 20px;
+font-weight: 500;
+`
+const Count =styled.div`
+font-size: 20px;
+font-weight: 500;
+`
+const Option = styled.div`
+margin: 10px;
+width: 40%;
 display: flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: center;
-`;
+flex-direction: row;
+justify-content: space-between;
 
-const SubmitButton = styled.button`
-margin: 5px;
-padding: 10px;
-width: 150px;
-border-radius: 5px;
-font-size: 15px;
+`
+const MyInput = styled.input`
+margin-left: 10px;
+width: 22px;
+height: 22px;
 font-weight: bold;
-background-color: teal;
-color: white;
-`;
 
-const ClickAnswerButton = styled.button`
-margin: 10px 0px;
-padding: 10px;
-width: 100px;
-border-radius: 5px;
-font-size: 15px;
+`
+const Ansdiv = styled.div`
+display: flex;
+`
+const AnsText = styled.div`
+margin-left: 5px;
+font-size: 20px;
+font-weight: 500;
+
+
+`
+const Remark = styled.textarea`
+margin-left: 20px;
+margin-top:20px ;
+padding: 3px;
+color: grey;
 font-weight: bold;
-background-color: teal;
-color: white;
-`;
+border: transparent;
+border-radius: 5px;
 
-const FirstSpan = styled.span`
+background-color: #e9e9e9;
+`
+const Flexdiv = styled.div`
+display: flex;
 
-`;
-
-
-
-
-const Index = () => {
-
-    var QuestionBank = [
-        {
-           Question:"Have you delivered your best which you were capable?",
-           Answers:[
-               {Answer:"Yes" , isCorrect:true},
-               {Answer:"No" , isCorrect:false},
-               
-           ]
-       },
-
-       {
-           Question:"Have the spirit of you conduct been harmonious and cooperative all the time?",
-           Answers:[
-               {Answer:"Yes" , isCorrect:true},
-               {Answer:"No" , isCorrect:false},
-               
-           ]
-       },
-
-       {
-           Question:"Have you been persistent in following your plan through to completion?",
-           Answers:[
-               {Answer:"Yes" , isCorrect:true},
-               {Answer:"No" , isCorrect:false},
-              
-           ]
-       },
-
-       {
-           Question:"Has my relationship with my colleagues in work been pleasant or unpleasant?",
-           Answers:[
-               {Answer:"Yes" , isCorrect:true},
-               {Answer:"No" , isCorrect:false},
-              
-           ]
-       },
-
-       {
-           Question:"Have I been open minded and tolerant in connections with all subject?",
-           Answers:[
-               {Answer:"Yes" , isCorrect:true},
-               {Answer:"No" , isCorrect:false},
-               
-           ]
-       },
-   ];
-
-
-    //useSateHook
-
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
-    const [showScore, setShowScore] = useState(false);
-
-const handleAnswerResponse=(isCorrect)=>{
-    if(isCorrect){
-        setScore(score+1);
-    }
-    const nextQuestion = currentQuestion+1;
-    if(nextQuestion<QuestionBank.length){
-        setCurrentQuestion(nextQuestion);
-    }
-    else{
-        setShowScore(true);
-    }
-}
-//
-    console.log(QuestionBank)
-const resetQuiz = ()=>{
-    setCurrentQuestion(0);
-    setScore(0);
-    setShowScore(false);
-
-}
-
+`
+const index = () => {
   return (
-
-    <MainContainer>
-        <HeadText>Evalute Your Personal Development Skills</HeadText>
     <Container>
-        
-        <Wrapper>
-        {
-            showScore?(
-                <MyScore>
-                    <ResultText>You have scored {score} out of {QuestionBank.length}</ResultText>
-                    <>
-                    <SubmitButton type='submit' onClick={resetQuiz}>Evaluate Again!</SubmitButton>
-                    </>
-                </MyScore>
-            ):(
-                <>
-                <QuestionDiv >
-                    <QuestionNum >
-                        <FirstSpan>{currentQuestion+1}</FirstSpan>/{QuestionBank.length}
-
-                    </QuestionNum>
-                    <SecondDiv >
-                        {QuestionBank[currentQuestion].Question}
-
-                    </SecondDiv>
-
-                    <ThirdDiv >
-                        {QuestionBank[currentQuestion].Answers.map((answer)=>(
-                                <ClickAnswerButton onClick={()=>handleAnswerResponse(answer.isCorrect)}>{answer.Answer}</ClickAnswerButton>
-                            ))
-                        }
-
-                    </ThirdDiv>
-
-                </QuestionDiv>
-                </>
-            )
-        }
-        </Wrapper>
+    <Heading>Evaluate Your Personal Development  </Heading>
+    <Desc>The Personality Development Evaluation is an empowering journey that allows individuals to dive deep into the core of their being, exploring their unique traits, strengths, and areas for growth. </Desc>
+   <Flexdiv>
+    <Total>
+      <MainDiv>
+        <Count>1.</Count><QuesDiv>Have you dilivered your best which you were capable?</QuesDiv>   
+      </MainDiv>
+     <Option>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='yes'/>
+        <AnsText>Yes</AnsText>
+       </Ansdiv>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='no'/>
+        <AnsText>No</AnsText>
+       </Ansdiv>
+      </Option>
+      <Remark cols='40' rows='3'>
+       Hey I gave my best to develop this masterpiece
+      </Remark>
+    </Total>
+    <Total>
+      <MainDiv>
+        <Count>2.</Count><QuesDiv>Have you dilivered your best which you were capable?</QuesDiv>   
+      </MainDiv>
+     <Option>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='yes'/>
+        <AnsText>Yes</AnsText>
+       </Ansdiv>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='no'/>
+        <AnsText>No</AnsText>
+       </Ansdiv>
+      </Option>
+      <Remark cols='40' rows='3'>
+       Hey I gave my best to develop this masterpiece
+      </Remark>
+    </Total>
+    </Flexdiv>
+    <Total>
+      <MainDiv>
+        <Count>3.</Count><QuesDiv>Have you dilivered your best which you were capable?</QuesDiv>   
+      </MainDiv>
+     <Option>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='yes'/>
+        <AnsText>Yes</AnsText>
+       </Ansdiv>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='no'/>
+        <AnsText>No</AnsText>
+       </Ansdiv>
+      </Option>
+      <Remark cols='40' rows='3'>
+       Hey I gave my best to develop this masterpiece
+      </Remark>
+    </Total>
+    <Total>
+      <MainDiv>
+        <Count>4.</Count><QuesDiv>Have you dilivered your best which you were capable?</QuesDiv>   
+      </MainDiv>
+     <Option>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='yes'/>
+        <AnsText>Yes</AnsText>
+       </Ansdiv>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='no'/>
+        <AnsText>No</AnsText>
+       </Ansdiv>
+      </Option>
+      <Remark cols='40' rows='3'>
+       Hey I gave my best to develop this masterpiece
+      </Remark>
+    </Total>
+    <Total>
+      <MainDiv>
+        <Count>5.</Count><QuesDiv>Have you dilivered your best which you were capable?</QuesDiv>   
+      </MainDiv>
+     <Option>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='yes'/>
+        <AnsText>Yes</AnsText>
+       </Ansdiv>
+       <Ansdiv>
+        <MyInput type='radio' name='answer' value='no'/>
+        <AnsText>No</AnsText>
+       </Ansdiv>
+      </Option>
+      <Remark cols='40' rows='3'>
+       Hey I gave my best to develop this masterpiece
+      </Remark>
+    </Total>
     </Container>
-    </MainContainer>
   )
 }
 
-export default Index
-
+export default index
