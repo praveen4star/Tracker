@@ -1,14 +1,9 @@
 .task{
-    margin-bottom:4px;
     width: 80%;
     padding:10px;
     border:2px solid #808080;
     border-radius:8px;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto 4px auto; 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -19,41 +14,89 @@
   }
   
 
-/* Task Name */
+/* Task row1 */
 
-.task-name{
+.task-row1{
+    display:flex;
     line-height:25px;
-    margin-left:2rem;
 }
 
 @media only screen and (max-width: 400px) {
-    .task-name{
+    .task-row1{
         margin-left:0;
     }
   }
 
-.task-name button{
+/* task Name */
+ .task-name input{
+    margin-left:10px;
+ }
+
+.task-name  span{
+    margin-left:10px;
+ }
+
+ /* task complete button */
+.task-row1 .complete{
     background-color: rgba(217, 42, 42, 0.12);
     width:20px;
     height:20px;
     border-radius:50%;
 }
 
-/* spacing bw date and time */
-.task-name span{
-   margin-left:1rem;
-}
-
-/* task due */
-.task-due{
-    margin-left:33px;
-}
-
-/* task icons */
+ /* task Icons */
 .task-icons{
-    line-height:5px;
-}
+     justify-content:flex-end;
+     margin-left:auto;
+     line-height:5px;
+ }
 
 .task-icons span{
     padding-left:1rem;
+} 
+
+/* task-row2 */
+.task-row2{
+    display:flex;
+    gap:10px;
+    width:100%;
+    flex-wrap: wrap;
 }
+/* task deadline */
+.task-deadline{
+    display:flex;
+    margin-left:25px;
+    gap:10px;
+}
+
+/* Task Edit */
+.task-row2 .task-edit .save{
+  background-color:rgba(8, 32, 243, 0.75);
+  border-radius:5px;
+  color:white;
+}
+
+.task-row2 .due{
+  justify-content:space-around; 
+}
+/* spacing bw date and time */
+.task-row2 span{
+   margin-left:1rem;
+}
+
+
+/* task edit */
+.task-edit{
+    display:flex;
+    gap:10px;
+}
+
+/* due button */
+.due-button{
+    margin-left:auto;
+    background-color:red;
+    border:none;
+    border-radius:4px;
+    color:white;
+}
+

@@ -16,7 +16,7 @@ const TaskPage =() => {
 
     const fetchTask=()=>{
       try{
-        API.getTask(payload,(flag,res)=>setTask(res.data));
+        API.getTask(null,payload,(flag,res)=>setTask(res.data));
       }
       catch(err){
         console.log(err);
@@ -35,8 +35,8 @@ const TaskPage =() => {
       </div>
      {
       tasks&&tasks.map((task)=>{
-        const date=`${task?.date?.day}-${task?.date?.month}-${task?.date?.year}`;
-     return  <TaskCard key={task._id} id={task._id} name={task.task_name} due={task.timing} duedate={date} />
+        const date=task?.date?.montt<10?`${task?.date?.year}-0${task?.date?.month}-${task?.date?.day}`:`${task?.date?.year}-${task?.date?.month}-${task?.date?.day}`;
+     return  <TaskCard key={task._id} id={task._id} name={task.task_name} due={task.timing} duedate={date} dailytask={task.is_daily_task} />
         })
       }
     </div>

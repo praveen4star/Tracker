@@ -17,8 +17,9 @@ const createTask=(payload,callback)=>{
   fetchAndProcesd("/task",METHOD_TYPE.POST,payload,callback);
 }
 
-const getTask=(payload,callback)=>{
-  fetchAndProcesd("/task",METHOD_TYPE.GET,payload,callback);
+const getTask=(methodtype,payload,callback)=>{
+ const url=methodtype?methodtype:METHOD_TYPE.GET;
+  fetchAndProcesd("/task",url,payload,callback);
 }
 
 const getConsistency=(callback)=>{

@@ -1,0 +1,87 @@
+.quiz{
+margin-top: 100px;
+margin-bottom:80px;
+width:100%;
+}
+
+
+.quiz-title{
+font-size: 30px;
+font-weight: 300;
+text-align:center;
+}
+
+.quiz-desc{
+margin-top: 15px;
+width:60%;
+margin-left:auto;
+margin-right:auto;
+}
+
+@media only screen and (max-width:800px){
+  .quiz-desc{
+    width:90%;
+  }
+  
+}
+
+/* style to make responsive */
+.questions{
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* syle for each question tab */
+.question{
+    margin-top:50px;
+    flex-basis:50%;
+    flex-grow:1;
+}
+
+.question .question-name span{
+   margin-right:5px;
+}
+
+.option{
+    margin-top:10px;
+    margin-left:10px;
+}
+
+.option input{
+    margin-left:20px;
+}
+
+.option input[type=radio]{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-top:-1px
+}
+
+.option label{
+    margin-left:7px;
+}
+
+.question textarea{
+    margin-left:20px;
+    margin-top:10px;
+    border-radius:2px;
+}
+
+
+/* Submit Button */
+.submit{
+    margin-top:20px;
+    width:100px;
+    height:30px;
+    margin-left:110px;
+    background-color:rgba(8, 32, 243, 0.75);
+    border:none;
+    border-radius:5px;
+    color:white;
+}
+
+
