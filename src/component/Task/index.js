@@ -21,26 +21,23 @@ const TaskCard=(props)=>{
     const handleInput=(e)=>{
       e.preventDefault();
       const name = e.target.name;
-      const value = e.target.value;
+      const value = e.target.value; 
       setEdittask({...edittask, [name]:value })
-      console.log(edittask[name])
     }
     
 
       const compareDates = () => {
         const date1=new Date().getTime();
-        let date2 = new Date(`${duedate}T${due}:00+05:30`).getTime();
         console.log(duedate);
-        console.log(`${duedate}T${due}:00+05:30`);
+        let date2 = new Date(`${duedate}T${due}:00+05:30`).getTime();
         if (date1 < date2) {
-           return  true;
+           return  false;
         }else if (date1 > date2) {
-           return false;
-        } else {
            return true;
+        } else {
+           return false;
         }
       };
-       // const result=compareDates(today, "2023-05-28T14:36:00+05:30");
 
     const handleSubmit=(e)=>{
       try{
