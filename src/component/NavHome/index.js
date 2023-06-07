@@ -16,6 +16,7 @@ import logo from 'assets/images/logo.png';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PopupForm from 'component/Loginpopup/Loginform';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Features','Contact'];
@@ -96,8 +97,8 @@ const handleDrawerToggle = () => {
            { 
            user?<Button onClick={()=>navigate("/dashboard")} sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
                  dashboard
-            </Button>:<Button onClick={()=>navigate("/login")} sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
-                 login
+            </Button>:<Button style={{background:'purple'}}>
+                 <PopupForm/>
             </Button>
             }
           </Box>
