@@ -49,11 +49,16 @@ const TaskCard=(props)=>{
       setIsEditable(false);
     }
 
+    const handleComplete=()=>{
+      setEdittask({...edittask,is_completed:true});
+      handleSubmit();
+    }
+
     return(
         <div className="task"  onMouseEnter={()=>setShow(id)} onMouseLeave={()=>setShow(-1)}>
           <div className="task-row1">
            <div className="task-name">
-            <button className="complete"></button>
+            <button className="complete" onClick={handleComplete}></button>
             {isEditable?<input type="text" name="task_name" value={edittask.task_name} onChange={handleInput} />:<span>{name}</span>}
            </div>
             {show==id&&  <div className="task-icons">

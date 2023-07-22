@@ -1,11 +1,13 @@
-
-
-.open-btn {
-  background: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+.open-btn{
+  color:white;
+  margin-left:35px;
+  background-color: rgba(126,28,254,1);
+  font-weight:400;
+  font-size: 15px;
+  border:none;
+  border-radius:5px;
+  height:30px;
+  width:60px;
 }
 
 .popup {
@@ -55,7 +57,6 @@
   outline: none;
 }
  
-
 .popup form button[type='submit'] {
   padding: 10px 20px;
   font-size: 16px;
@@ -68,7 +69,6 @@
 }
 
 .close-btn {
-
   padding: 10px 20px;
   font-size: 16px;
   color: blue;

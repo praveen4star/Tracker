@@ -13,7 +13,7 @@ const About=()=>{
                 <Grid container spacing={10} >    
                     <Grid item  xs={12} sm={12} md={6}  lg={6}>
                         <Box>
-                            <img src={about1} alt="About" loading='lazy' style={{width:"100%"}}></img>
+                            <img src={about1} alt="About"  className="about-first" loading='lazy' style={{width:"100%"}}></img>
                         </Box>
                     </Grid>
 

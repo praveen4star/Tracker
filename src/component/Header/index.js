@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReactPlayer from 'react-player';
 import Paper from '@mui/material/Paper';
 
 
@@ -76,6 +75,7 @@ display: flex;
 
 justify-content: center;
 `
+
 const Box3=styled.div`
   margin-top: 85px;
   border: 4px solid gray;
@@ -93,27 +93,23 @@ const Box3=styled.div`
 const Header = () => {
   return (
     <>
-  
     <Container>
-    <Paper elevation={3} />
-
+      <Paper elevation={3} />
       <Wrapper1>
-      <Box>
-      <BigText>Avoid Distraction And Become More <br/>Focused And Consistent</BigText>
-      </Box>
-      <Box2>
-      <SmallerText>Task Exhibitor is A Platform Where Art ,Science & <br/>Craft Meet To Make You More Consistent,Organised <br/>And Efficient</SmallerText>  
-      </Box2>
-      <Button>Start</Button>
-      </Wrapper1>
-      <Wrapper2>
-        <Box3>
-          <ReactPlayer width='100%'height='100%' url='https://www.youtube.com/watch?v=0h7ETdJeBAo' controls />
-        </Box3>
-        
-         </Wrapper2>
-         <Paper />
-
+          <Box>
+            <BigText>Avoid Distraction And Become More <br/>Focused And Consistent</BigText>
+          </Box>
+          <Box2>
+            <SmallerText>Task Exhibitor is A Platform Where Art ,Science & <br/>Craft Meet To Make You More Consistent,Organised <br/>And Efficient</SmallerText>  
+          </Box2>
+            <Button>Start</Button>
+        </Wrapper1>
+        <Wrapper2>
+          <Box3>
+            <video width='100%' height='100%' url='https://www.youtube.com/watch?v=0h7ETdJeBAo' controls />
+          </Box3>
+        </Wrapper2>
+      <Paper />
     </Container>
     </>
   )

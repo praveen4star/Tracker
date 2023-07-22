@@ -55,7 +55,7 @@ dispatch(logauth(payload))
  }
 
   return (
-    <div>
+    <>
       <button className="open-btn" onClick={togglePopup}>
         Login
       </button>
@@ -99,7 +99,7 @@ dispatch(logauth(payload))
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

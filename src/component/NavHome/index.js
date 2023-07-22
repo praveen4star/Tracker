@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -19,11 +19,11 @@ import { useNavigate } from 'react-router-dom';
 import PopupForm from 'component/Loginpopup/Loginform';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Features','Contact'];
+const navItems = ['Home', 'About', 'Features', 'Contact'];
 
 function DrawerAppBar(props) {
-  const{user}=useSelector((state)=>state.auth);
-  const navigate=useNavigate();
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -37,14 +37,14 @@ function DrawerAppBar(props) {
 
 
 
-const handleDrawerToggle = () => {
+  const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-         <img src={logo} alt='logo' width="50px" height="60px"/>
+        <img src={logo} alt='logo' width="50px" height="60px" />
       </Typography>
       <Divider />
       <List>
@@ -62,58 +62,33 @@ const handleDrawerToggle = () => {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-   
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav" style={{ background: '#fff' }}>
-
-         <Toolbar>
-
-        
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } ,color:"black"}}
+        <Toolbar>
+          <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' }, color: "black" }}
           >
             <MenuIcon />
           </IconButton>
-          
-
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }}}>
-          <img src={logo} alt='logo' width="50px" height="60px"/>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+            <img src={logo} alt='logo' width="50px" height="60px" />
           </Box>
-          
-
           <ThemeProvider theme={theme}>
-            <Box sx={{ display: { xs: 'none', sm: 'block'},mr:'50px'}}>
-            { navItems.map((item) => (
-              <Button key={item} sx={{ color: 'black' ,ml:'35px' ,fontWeight:'400',fontSize:'15px'}} >
-                {item}
-              </Button>
-            )) }
-              
-           { 
-           user?<Button onClick={()=>navigate("/dashboard")} sx={{ color: 'white' ,ml:'35px',backgroundColor:'rgba(126, 28, 254, 1)',fontWeight:'400',fontSize:'15px'}}>
-                 dashboard
-            </Button>:<Button style={{background:'purple'}}>
-                 <PopupForm/>
-            </Button>
-            }
-          </Box>
+            <Box sx={{ display: { xs: 'none', sm: 'block' }, mr: '50px' }}>
+              {navItems.map((item) => (
+                <Button key={item} sx={{ color: 'black', ml: '35px', fontWeight: '400', fontSize: '15px' }} >
+                  {item}
+                </Button>
+              ))}
+              {user ? <Button onClick={() => navigate("/dashboard")} sx={{ color: 'white', ml: '35px', backgroundColor: 'rgba(126, 28, 254, 1)', fontWeight: '400', fontSize: '15px' }}>
+                  dashboard
+                </Button> :<PopupForm />}
+            </Box>
           </ThemeProvider>
         </Toolbar>
-
       </AppBar>
-
-      
-       <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
+      <Box component="nav">
+        <Drawer container={container} variant="temporary" open={mobileOpen} onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
@@ -125,8 +100,6 @@ const handleDrawerToggle = () => {
           {drawer}
         </Drawer>
       </Box>
-    
-     
     </Box>
   );
 }

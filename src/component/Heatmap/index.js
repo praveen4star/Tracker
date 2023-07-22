@@ -40,7 +40,7 @@ const Heatmap=()=>{
   const today=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
   const prevyear=`${date.getFullYear()-1}-${date.getMonth()}-${date.getDate()}`;
   return (
-    <div>
+    <div style={{marginLeft:"16%",marginTop:"5%"}}>
       <CalendarHeatmap
         startDate={prevyear}
         endDate={today}

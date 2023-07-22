@@ -20,6 +20,7 @@ const Today=()=>{
 
   return (
     <div className="daily" style={{marginTop:"150px",width:"100%",marginBottom:"100px"}}>
+      <h1 style={{textAlign:'center',marginBottom:"50px"}}>Daily Routine</h1>
         {
       dailytask&&dailytask.map((task)=>{
         const date=`${task?.date?.day}-${task?.date?.month}-${task?.date?.year}`;

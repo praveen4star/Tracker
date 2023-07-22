@@ -19,8 +19,9 @@ const Today=()=>{
     },[]);
 
   return (
-    <div className="today" style={{marginTop:"150px",width:"100%",marginBottom:"100px"}}>
-        {
+    <div className="today" style={{marginTop:"100px",width:"100%"}}>
+      <h1 style={{marginTop:"20px",marginBottom:"50px",textAlign:"center"}}>Today Task</h1>
+     {
       todaytask&&todaytask.map((task)=>{
         const date=`${task?.date?.day}-${task?.date?.month}-${task?.date?.year}`;
      return  <TaskCard key={task._id} id={task._id} name={task.task_name} due={task.timinng} duedate={date} />

@@ -9,10 +9,10 @@ const index = () => {
     <div className="quiz-desc">The Personality Development Evaluation is an empowering journey that allows individuals to dive deep into the core of their being, exploring their unique traits, strengths, and areas for growth. </div>
    <div className="questions">
    {
-    question.map((item,index)=>{
+   question&& question.map((item,index)=>{
     return <div className="question" key={item?.id}>
       <div className="question-name">
-        <span>{index+1}.</span>Have you delivered your best which you were capable?
+        <span>{index+1}.</span>{item?.name}
       </div>
       <div className="option">
        <form>

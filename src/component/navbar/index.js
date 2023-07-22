@@ -1,6 +1,6 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-import { CgProfile }   from 'react-icons/cg'
+import { CgProfile }   from 'react-icons/cg';
 import "./index.css";
 
 
