@@ -49,9 +49,11 @@ const TaskCard=(props)=>{
       setIsEditable(false);
     }
 
-    const handleComplete=()=>{
-      setEdittask({...edittask,is_completed:true});
-      handleSubmit();
+    const handleComplete=async()=>{
+      const updateObj = edittask;
+      updateObj.is_completed = true;
+      setEdittask(updateObj);
+      handleSubmit({});
     }
 
     return(

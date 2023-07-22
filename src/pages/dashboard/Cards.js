@@ -8,7 +8,7 @@ import './Card.css';
 
 
  const Plancard= (props)=> {
-  const{number,name,desc}=props;
+  const{number,name,desc,total,completed}=props;
   return (
     <>
       <div  className="card">
@@ -19,11 +19,15 @@ import './Card.css';
         </div>
         <div className="pro-wrapper">
            <div className="progress">
-            <CircularProgressbar value={0.60} maxValue={1} text={`${0.60 * 100}%`} 
-            styles={buildStyles({textSize:'25px',textColor:'black'})} />
+            {
+            total!=0?
+           <CircularProgressbar value={completed/total} maxValue={1} text={`${completed/total * 100}%`} 
+                   styles={buildStyles({textSize:'25px',textColor:'black'})} />: <CircularProgressbar value={completed/total} maxValue={1} text={`${0}%`} 
+                   styles={buildStyles({textSize:'25px',textColor:'black'})} />
+            }
            </div>
            <div  className="progress-text">
-            6/10
+            {completed}/{total}
           </div>
         </div>
         <div className="card-description">{desc}</div>

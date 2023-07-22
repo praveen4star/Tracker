@@ -42,7 +42,7 @@ const Dashboard = () => {
       {
        plans&&plans.map((plan,index)=>
         <Link key={plan._id} to={"/dashboard/task?t=" + plan._id}>
-         <Card key={plan._id} number={index+1} name={plan.plan_name} desc={plan.desc} />
+         <Card key={plan._id} number={index+1} name={plan.plan_name} desc={plan.desc} total={plan?.total} completed={plan?.completed}/>
         </Link>
        )
       } 
